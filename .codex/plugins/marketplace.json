@@ -1,0 +1,20 @@
+{
+  "name": "workspace-local",
+  "interface": {
+    "displayName": "Workspace Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "codex-official-docs-ingestion",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex-official-docs-ingestion"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

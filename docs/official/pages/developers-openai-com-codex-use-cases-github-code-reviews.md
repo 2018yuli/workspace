@@ -1,0 +1,135 @@
+---
+source: https://developers.openai.com/codex/use-cases/github-code-reviews
+title: "Review pull requests faster | Codex use cases"
+crawledAt: 2026-04-27T14:13:44.797Z
+---
+## Search the Codex docs
+
+Search docs
+
+### Suggested
+
+worktreesmcpnoninteractivesandbox
+
+Primary navigation
+
+Search docs
+
+### Suggested
+
+worktreesmcpnoninteractivesandbox
+
+Docs  Use cases
+
+- [Home](https://developers.openai.com/codex/use-cases)
+- [Collections](https://developers.openai.com/codex/use-cases/collections)
+
+[API Dashboard](https://platform.openai.com/login)
+
+Codex use cases
+
+![](https://developers.openai.com/assets/OpenAI-black-wordmark.svg)
+
+![Codex](https://developers.openai.com/assets/OAI_Codex-Lockup_Fallback_Black.svg)
+
+Codex use case
+
+# Review pull requests faster
+
+Catch regressions and potential issues before human review.
+
+Difficulty **Easy**
+
+Time horizon **5s**
+
+Use Codex in GitHub to automatically surface regressions, missing tests, and documentation issues directly on a pull request.
+
+## Best for
+
+- Teams that want another review signal before human merge approval
+- Large codebases for projects in production
+
+# Contents
+
+[← All use cases](https://developers.openai.com/codex/use-cases)
+
+Use Codex in GitHub to automatically surface regressions, missing tests, and documentation issues directly on a pull request.
+
+Easy
+
+5s
+
+Related links
+
+[Use Codex in GitHub](https://developers.openai.com/codex/integrations/github) [Custom instructions with AGENTS.md](https://developers.openai.com/codex/guides/agents-md)
+
+## Best for
+
+- Teams that want another review signal before human merge approval
+- Large codebases for projects in production
+
+## Skills & Plugins
+
+- [Security Best Practices](https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices)
+
+Focus the review on risky surfaces such as secrets, auth, and dependency changes.
+
+
+| Skill | Why use it |
+| --- | --- |
+| [Security Best Practices](https://github.com/openai/skills/tree/main/skills/.curated/security-best-practices) | Focus the review on risky surfaces such as secrets, auth, and dependency changes. |
+
+## Starter prompt
+
+@codex review for security regressions, missing tests, and risky behavior changes.
+
+@codex review for security regressions, missing tests, and risky behavior changes.
+
+## How to use
+
+Start by adding Codex code review to your GitHub organization or repository. See [Use Codex in GitHub](https://developers.openai.com/codex/integrations/github) for more details.
+
+You can set up Codex to automatically review every pull request, or you can request a review with `@codex review` in a pull request comment.
+
+If Codex flags a regression or potential issue, you can ask it to fix it by commenting on the pull request with a follow-up prompt like `@codex fix it`.
+
+This will start a new cloud task that will fix the issue and update the pull request.
+
+## Define additional guidance
+
+To customize what Codex reviews, add or update a top-level `AGENTS.md` with a section like this:
+
+```
+## Review guidelines
+
+- Flag typos and grammar issues as P0 issues.
+- Flag potential missing documentation as P1 issues.
+- Flag missing tests as P1 issues.
+  ...
+
+
+```
+
+Codex applies guidance from the closest `AGENTS.md` to each changed file. You can place more specific instructions deeper in the tree when particular packages need extra scrutiny.
+
+## Related use cases
+
+[![](https://developers.openai.com/images/codex/codex-wallpaper-2.webp)\\
+\\
+**Deploy an app or website**\\
+\\
+Use Codex with Build Web Apps and Vercel to turn a repo, screenshot, design, or rough app... \\
+\\
+Front-end  Integrations](https://developers.openai.com/codex/use-cases/deploy-app-or-website) [![](https://developers.openai.com/images/codex/codex-wallpaper-1.webp)\\
+\\
+**Bring your app to ChatGPT**\\
+\\
+Build one narrow ChatGPT app outcome end to end: define the tools, scaffold the MCP server... \\
+\\
+Integrations  Code](https://developers.openai.com/codex/use-cases/chatgpt-apps) [![](https://developers.openai.com/images/codex/codex-wallpaper-1.webp)\\
+\\
+**Complete tasks from messages**\\
+\\
+Use Computer Use to read one Messages thread, complete the task, and draft a reply. \\
+\\
+Knowledge Work  Integrations](https://developers.openai.com/codex/use-cases/complete-tasks-from-messages)

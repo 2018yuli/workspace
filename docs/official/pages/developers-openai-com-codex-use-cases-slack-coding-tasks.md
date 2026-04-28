@@ -1,0 +1,112 @@
+---
+source: https://developers.openai.com/codex/use-cases/slack-coding-tasks
+title: "Kick off coding tasks from Slack | Codex use cases"
+crawledAt: 2026-04-27T14:17:04.032Z
+---
+## Search the Codex docs
+
+Search docs
+
+### Suggested
+
+worktreesmcpnoninteractivesandbox
+
+Primary navigation
+
+Search docs
+
+### Suggested
+
+worktreesmcpnoninteractivesandbox
+
+Docs  Use cases
+
+- [Home](https://developers.openai.com/codex/use-cases)
+- [Collections](https://developers.openai.com/codex/use-cases/collections)
+
+[API Dashboard](https://platform.openai.com/login)
+
+Codex use cases
+
+![](https://developers.openai.com/assets/OpenAI-black-wordmark.svg)
+
+![Codex](https://developers.openai.com/assets/OAI_Codex-Lockup_Fallback_Black.svg)
+
+Codex use case
+
+# Kick off coding tasks from Slack
+
+Turn Slack threads into scoped cloud tasks.
+
+Difficulty **Easy**
+
+Time horizon **5m**
+
+Mention `@Codex` in Slack to start a task tied to the right repo and environment, then review the result back in the thread or in Codex cloud.
+
+## Best for
+
+- Async handoffs that start in a Slack thread and already have enough context to act on
+- Teams that want quick issue triage, bug fixes, or scoped implementation work without context switching
+
+# Contents
+
+[← All use cases](https://developers.openai.com/codex/use-cases)
+
+Mention `@Codex` in Slack to start a task tied to the right repo and environment, then review the result back in the thread or in Codex cloud.
+
+Easy
+
+5m
+
+Related links
+
+[Use Codex in Slack](https://developers.openai.com/codex/integrations/slack) [Codex cloud environments](https://developers.openai.com/codex/cloud/environments)
+
+## Best for
+
+- Async handoffs that start in a Slack thread and already have enough context to act on
+- Teams that want quick issue triage, bug fixes, or scoped implementation work without context switching
+
+## Starter prompt
+
+@Codex analyze the issue mentioned in this thread and implement a fix in <name of your environment>.
+
+@Codex analyze the issue mentioned in this thread and implement a fix in <name of your environment>.
+
+## How to use
+
+1. Install the Slack app, connect the right repositories and environments, and add `@Codex` to the channel.
+2. Mention `@Codex` in a thread with a clear request, constraints, and the outcome you want.
+3. Open the task link, review the result, and continue the follow-up in Slack if the task needs another pass.
+
+You can learn more about how to use Codex in Slack in the [dedicated guide](https://developers.openai.com/codex/integrations/slack).
+
+## Tips
+
+- If the thread does not already include enough context or suggested fix, include in your prompt some guidance
+- Make sure the repo and environment mapping are correct by mentioning the name of the project or environment in your prompt
+- Scope the request so Codex can finish it without a second planning loop
+- If your project is a large codebase, guide Codex by mentioning which files or folders are relevant to the task
+
+## Related use cases
+
+[![](https://developers.openai.com/images/codex/codex-wallpaper-1.webp)\\
+\\
+**Complete tasks from messages**\\
+\\
+Use Computer Use to read one Messages thread, complete the task, and draft a reply. \\
+\\
+Knowledge Work  Integrations](https://developers.openai.com/codex/use-cases/complete-tasks-from-messages) [![](https://developers.openai.com/images/codex/codex-wallpaper-2.webp)\\
+\\
+**Coordinate new-hire onboarding**\\
+\\
+Use Codex to gather approved new-hire context, stage tracker updates, draft team-by-team... \\
+\\
+Integrations  Data](https://developers.openai.com/codex/use-cases/new-hire-onboarding) [![](https://developers.openai.com/images/codex/codex-wallpaper-3.webp)\\
+\\
+**Generate slide decks**\\
+\\
+Use Codex to update existing presentations or build new decks by editing slides directly... \\
+\\
+Data  Integrations](https://developers.openai.com/codex/use-cases/generate-slide-decks)

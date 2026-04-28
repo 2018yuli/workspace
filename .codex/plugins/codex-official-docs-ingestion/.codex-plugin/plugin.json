@@ -1,0 +1,40 @@
+{
+  "name": "codex-official-docs-ingestion",
+  "version": "0.1.0",
+  "description": "Crawl official Codex documentation with Firecrawl and export markdown to docs/official.",
+  "author": {
+    "name": "Workspace",
+    "email": "",
+    "url": ""
+  },
+  "homepage": "https://developers.openai.com/codex/",
+  "repository": "",
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "docs",
+    "firecrawl",
+    "ingestion"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Official Docs Ingestion",
+    "shortDescription": "Fetch official Codex docs into docs/official.",
+    "longDescription": "Provides an ingestion skill and Firecrawl-backed script that crawls official Codex documentation and stores markdown plus crawl metadata under docs/official.",
+    "developerName": "Workspace",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://developers.openai.com/codex/",
+    "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
+    "termsOfServiceURL": "https://openai.com/policies/terms-of-use/",
+    "defaultPrompt": [
+      "Use the ingestion skill to fetch official Codex docs.",
+      "Refresh docs/official from the latest Codex docs pages.",
+      "Crawl Codex docs and save markdown locally."
+    ],
+    "brandColor": "#1f6feb"
+  }
+}

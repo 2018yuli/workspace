@@ -1,0 +1,1758 @@
+{
+  "generatedAt": "2026-04-27T14:19:20.933Z",
+  "outputDir": "docs/official",
+  "discoveryRoot": "https://developers.openai.com/codex/",
+  "allowedPrefix": "https://developers.openai.com/codex/",
+  "discoveredUrlCount": 97,
+  "batchSize": 10,
+  "urls": [
+    "https://developers.openai.com/codex/",
+    "https://developers.openai.com/codex/agent-approvals-security",
+    "https://developers.openai.com/codex/app",
+    "https://developers.openai.com/codex/app-server",
+    "https://developers.openai.com/codex/app/automations",
+    "https://developers.openai.com/codex/app/browser",
+    "https://developers.openai.com/codex/app/commands",
+    "https://developers.openai.com/codex/app/computer-use",
+    "https://developers.openai.com/codex/app/features",
+    "https://developers.openai.com/codex/app/local-environments",
+    "https://developers.openai.com/codex/app/review",
+    "https://developers.openai.com/codex/app/settings",
+    "https://developers.openai.com/codex/app/troubleshooting",
+    "https://developers.openai.com/codex/app/windows",
+    "https://developers.openai.com/codex/app/worktrees",
+    "https://developers.openai.com/codex/auth",
+    "https://developers.openai.com/codex/auth/ci-cd-auth",
+    "https://developers.openai.com/codex/changelog",
+    "https://developers.openai.com/codex/cli",
+    "https://developers.openai.com/codex/cli/features",
+    "https://developers.openai.com/codex/cli/features#image-generation",
+    "https://developers.openai.com/codex/cli/reference",
+    "https://developers.openai.com/codex/cli/slash-commands",
+    "https://developers.openai.com/codex/cloud",
+    "https://developers.openai.com/codex/cloud/environments",
+    "https://developers.openai.com/codex/cloud/internet-access",
+    "https://developers.openai.com/codex/codex-for-oss-terms",
+    "https://developers.openai.com/codex/concepts/customization",
+    "https://developers.openai.com/codex/concepts/cyber-safety",
+    "https://developers.openai.com/codex/concepts/sandboxing",
+    "https://developers.openai.com/codex/concepts/subagents",
+    "https://developers.openai.com/codex/config-advanced",
+    "https://developers.openai.com/codex/config-basic",
+    "https://developers.openai.com/codex/config-reference",
+    "https://developers.openai.com/codex/config-sample",
+    "https://developers.openai.com/codex/custom-prompts",
+    "https://developers.openai.com/codex/enterprise/admin-setup",
+    "https://developers.openai.com/codex/enterprise/governance",
+    "https://developers.openai.com/codex/enterprise/managed-configuration",
+    "https://developers.openai.com/codex/feature-maturity",
+    "https://developers.openai.com/codex/guides/agents-md",
+    "https://developers.openai.com/codex/guides/agents-sdk",
+    "https://developers.openai.com/codex/guides/build-ai-native-engineering-team",
+    "https://developers.openai.com/codex/hooks",
+    "https://developers.openai.com/codex/ide",
+    "https://developers.openai.com/codex/ide/commands",
+    "https://developers.openai.com/codex/ide/features",
+    "https://developers.openai.com/codex/ide/settings",
+    "https://developers.openai.com/codex/ide/slash-commands",
+    "https://developers.openai.com/codex/integrations/github",
+    "https://developers.openai.com/codex/integrations/linear",
+    "https://developers.openai.com/codex/integrations/slack",
+    "https://developers.openai.com/codex/learn/best-practices",
+    "https://developers.openai.com/codex/llms-full.txt",
+    "https://developers.openai.com/codex/llms.txt",
+    "https://developers.openai.com/codex/mcp",
+    "https://developers.openai.com/codex/memories",
+    "https://developers.openai.com/codex/memories/chronicle",
+    "https://developers.openai.com/codex/models",
+    "https://developers.openai.com/codex/noninteractive",
+    "https://developers.openai.com/codex/open-source",
+    "https://developers.openai.com/codex/plugins",
+    "https://developers.openai.com/codex/plugins/build",
+    "https://developers.openai.com/codex/pricing",
+    "https://developers.openai.com/codex/pricing#image-generation-usage-limits",
+    "https://developers.openai.com/codex/prompting",
+    "https://developers.openai.com/codex/quickstart",
+    "https://developers.openai.com/codex/remote-connections",
+    "https://developers.openai.com/codex/rules",
+    "https://developers.openai.com/codex/sdk",
+    "https://developers.openai.com/codex/security",
+    "https://developers.openai.com/codex/security/setup",
+    "https://developers.openai.com/codex/skills",
+    "https://developers.openai.com/codex/speed",
+    "https://developers.openai.com/codex/subagents",
+    "https://developers.openai.com/codex/use-cases",
+    "https://developers.openai.com/codex/use-cases/agent-friendly-clis",
+    "https://developers.openai.com/codex/use-cases/chatgpt-apps",
+    "https://developers.openai.com/codex/use-cases/codebase-onboarding",
+    "https://developers.openai.com/codex/use-cases/collections/game-development",
+    "https://developers.openai.com/codex/use-cases/collections/native-development",
+    "https://developers.openai.com/codex/use-cases/collections/productivity-and-collaboration",
+    "https://developers.openai.com/codex/use-cases/datasets-and-reports",
+    "https://developers.openai.com/codex/use-cases/figma-designs-to-code",
+    "https://developers.openai.com/codex/use-cases/frontend-designs",
+    "https://developers.openai.com/codex/use-cases/generate-slide-decks",
+    "https://developers.openai.com/codex/use-cases/github-code-reviews",
+    "https://developers.openai.com/codex/use-cases/ios-liquid-glass",
+    "https://developers.openai.com/codex/use-cases/ios-simulator-bug-debugging",
+    "https://developers.openai.com/codex/use-cases/macos-telemetry-logs",
+    "https://developers.openai.com/codex/use-cases/manage-your-inbox",
+    "https://developers.openai.com/codex/use-cases/proactive-teammate",
+    "https://developers.openai.com/codex/use-cases/refactor-your-codebase",
+    "https://developers.openai.com/codex/use-cases/slack-coding-tasks",
+    "https://developers.openai.com/codex/videos",
+    "https://developers.openai.com/codex/windows",
+    "https://developers.openai.com/codex/workflows"
+  ],
+  "pages": [
+    {
+      "url": "https://developers.openai.com/codex/",
+      "slug": "developers-openai-com-codex",
+      "title": "Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex.json",
+      "markdownBytes": 8426
+    },
+    {
+      "url": "https://developers.openai.com/codex/agent-approvals-security",
+      "slug": "developers-openai-com-codex-agent-approvals-security",
+      "title": "Agent approvals & security – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-agent-approvals-security.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-agent-approvals-security.json",
+      "markdownBytes": 28343
+    },
+    {
+      "url": "https://developers.openai.com/codex/app",
+      "slug": "developers-openai-com-codex-app",
+      "title": "App – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app.json",
+      "markdownBytes": 11964
+    },
+    {
+      "url": "https://developers.openai.com/codex/app-server",
+      "slug": "developers-openai-com-codex-app-server",
+      "title": "App Server – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-server.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-server.json",
+      "markdownBytes": 76271
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/automations",
+      "slug": "developers-openai-com-codex-app-automations",
+      "title": "Automations – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-automations.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-automations.json",
+      "markdownBytes": 18552
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/browser",
+      "slug": "developers-openai-com-codex-app-browser",
+      "title": "In-app browser – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-browser.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-browser.json",
+      "markdownBytes": 10698
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/commands",
+      "slug": "developers-openai-com-codex-app-commands",
+      "title": "Commands – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-commands.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-commands.json",
+      "markdownBytes": 9142
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/computer-use",
+      "slug": "developers-openai-com-codex-app-computer-use",
+      "title": "Computer Use – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-computer-use.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-computer-use.json",
+      "markdownBytes": 12508
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/features",
+      "slug": "developers-openai-com-codex-app-features",
+      "title": "Features – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-features.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-features.json",
+      "markdownBytes": 27269
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/local-environments",
+      "slug": "developers-openai-com-codex-app-local-environments",
+      "title": "Local environments – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-local-environments.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-local-environments.json",
+      "markdownBytes": 8831
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/review",
+      "slug": "developers-openai-com-codex-app-review",
+      "title": "Review – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-review.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-review.json",
+      "markdownBytes": 10926
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/settings",
+      "slug": "developers-openai-com-codex-app-settings",
+      "title": "Settings – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-settings.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-settings.json",
+      "markdownBytes": 10300
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/troubleshooting",
+      "slug": "developers-openai-com-codex-app-troubleshooting",
+      "title": "Troubleshooting – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-troubleshooting.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-troubleshooting.json",
+      "markdownBytes": 11790
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/windows",
+      "slug": "developers-openai-com-codex-app-windows",
+      "title": "Windows – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-windows.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-windows.json",
+      "markdownBytes": 17669
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/worktrees",
+      "slug": "developers-openai-com-codex-app-worktrees",
+      "title": "Worktrees – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-app-worktrees.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-app-worktrees.json",
+      "markdownBytes": 17625
+    },
+    {
+      "url": "https://developers.openai.com/codex/auth",
+      "slug": "developers-openai-com-codex-auth",
+      "title": "Authentication – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-auth.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-auth.json",
+      "markdownBytes": 15933
+    },
+    {
+      "url": "https://developers.openai.com/codex/auth/ci-cd-auth",
+      "slug": "developers-openai-com-codex-auth-ci-cd-auth",
+      "title": "Maintain Codex account auth in CI/CD (advanced) | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-auth-ci-cd-auth.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-auth-ci-cd-auth.json",
+      "markdownBytes": 14907
+    },
+    {
+      "url": "https://developers.openai.com/codex/changelog",
+      "slug": "developers-openai-com-codex-changelog",
+      "title": "Changelog – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-changelog.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-changelog.json",
+      "markdownBytes": 268588
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli",
+      "slug": "developers-openai-com-codex-cli",
+      "title": "CLI – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cli.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cli.json",
+      "markdownBytes": 10288
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/features",
+      "slug": "developers-openai-com-codex-cli-features",
+      "title": "Features – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cli-features.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cli-features.json",
+      "markdownBytes": 24087
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/reference",
+      "slug": "developers-openai-com-codex-cli-reference",
+      "title": "Command line options – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cli-reference.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cli-reference.json",
+      "markdownBytes": 47901
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/features#image-generation",
+      "slug": "developers-openai-com-codex-cli-features",
+      "title": "Features – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cli-features.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cli-features.json",
+      "markdownBytes": 24087
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud",
+      "slug": "developers-openai-com-codex-cloud",
+      "title": "Web – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cloud.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cloud.json",
+      "markdownBytes": 8201
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/slash-commands",
+      "slug": "developers-openai-com-codex-cli-slash-commands",
+      "title": "Slash commands in Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cli-slash-commands.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cli-slash-commands.json",
+      "markdownBytes": 24534
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud/internet-access",
+      "slug": "developers-openai-com-codex-cloud-internet-access",
+      "title": "Agent internet access – Codex web | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cloud-internet-access.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cloud-internet-access.json",
+      "markdownBytes": 10083
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud/environments",
+      "slug": "developers-openai-com-codex-cloud-environments",
+      "title": "Cloud environments – Codex web | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-cloud-environments.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-cloud-environments.json",
+      "markdownBytes": 10669
+    },
+    {
+      "url": "https://developers.openai.com/codex/codex-for-oss-terms",
+      "slug": "developers-openai-com-codex-codex-for-oss-terms",
+      "title": "For Open Source Program Terms – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-codex-for-oss-terms.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-codex-for-oss-terms.json",
+      "markdownBytes": 11623
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/customization",
+      "slug": "developers-openai-com-codex-concepts-customization",
+      "title": "Customization – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-concepts-customization.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-concepts-customization.json",
+      "markdownBytes": 14942
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/cyber-safety",
+      "slug": "developers-openai-com-codex-concepts-cyber-safety",
+      "title": "Cyber Safety – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-concepts-cyber-safety.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-concepts-cyber-safety.json",
+      "markdownBytes": 10644
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/sandboxing",
+      "slug": "developers-openai-com-codex-concepts-sandboxing",
+      "title": "Sandbox – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-concepts-sandboxing.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-concepts-sandboxing.json",
+      "markdownBytes": 14756
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/subagents",
+      "slug": "developers-openai-com-codex-concepts-subagents",
+      "title": "Subagents – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-concepts-subagents.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-concepts-subagents.json",
+      "markdownBytes": 11710
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-advanced",
+      "slug": "developers-openai-com-codex-config-advanced",
+      "title": "Advanced Configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-config-advanced.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-config-advanced.json",
+      "markdownBytes": 41375
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-basic",
+      "slug": "developers-openai-com-codex-config-basic",
+      "title": "Config basics – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-config-basic.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-config-basic.json",
+      "markdownBytes": 14269
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-reference",
+      "slug": "developers-openai-com-codex-config-reference",
+      "title": "Configuration Reference – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-config-reference.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-config-reference.json",
+      "markdownBytes": 85527
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-sample",
+      "slug": "developers-openai-com-codex-config-sample",
+      "title": "Sample Configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-config-sample.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-config-sample.json",
+      "markdownBytes": 31915
+    },
+    {
+      "url": "https://developers.openai.com/codex/custom-prompts",
+      "slug": "developers-openai-com-codex-custom-prompts",
+      "title": "Custom Prompts – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-custom-prompts.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-custom-prompts.json",
+      "markdownBytes": 9411
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/governance",
+      "slug": "developers-openai-com-codex-enterprise-governance",
+      "title": "Governance – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-enterprise-governance.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-enterprise-governance.json",
+      "markdownBytes": 11307
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/admin-setup",
+      "slug": "developers-openai-com-codex-enterprise-admin-setup",
+      "title": "Admin Setup – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-enterprise-admin-setup.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-enterprise-admin-setup.json",
+      "markdownBytes": 27670
+    },
+    {
+      "url": "https://developers.openai.com/codex/feature-maturity",
+      "slug": "developers-openai-com-codex-feature-maturity",
+      "title": "Feature Maturity – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-feature-maturity.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-feature-maturity.json",
+      "markdownBytes": 7020
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/managed-configuration",
+      "slug": "developers-openai-com-codex-enterprise-managed-configuration",
+      "title": "Managed configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-enterprise-managed-configuration.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-enterprise-managed-configuration.json",
+      "markdownBytes": 21002
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/agents-sdk",
+      "slug": "developers-openai-com-codex-guides-agents-sdk",
+      "title": "Use Codex with the Agents SDK | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-guides-agents-sdk.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-guides-agents-sdk.json",
+      "markdownBytes": 24764
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/agents-md",
+      "slug": "developers-openai-com-codex-guides-agents-md",
+      "title": "Custom instructions with AGENTS.md – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-guides-agents-md.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-guides-agents-md.json",
+      "markdownBytes": 13331
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team",
+      "slug": "developers-openai-com-codex-guides-build-ai-native-engineering-team",
+      "title": "Building an AI-Native Engineering Team – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-guides-build-ai-native-engineering-team.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-guides-build-ai-native-engineering-team.json",
+      "markdownBytes": 33635
+    },
+    {
+      "url": "https://developers.openai.com/codex/hooks",
+      "slug": "developers-openai-com-codex-hooks",
+      "title": "Hooks – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-hooks.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-hooks.json",
+      "markdownBytes": 24140
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/commands",
+      "slug": "developers-openai-com-codex-ide-commands",
+      "title": "Commands – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-ide-commands.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-ide-commands.json",
+      "markdownBytes": 7321
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide",
+      "slug": "developers-openai-com-codex-ide",
+      "title": "IDE extension – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-ide.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-ide.json",
+      "markdownBytes": 12927
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/features",
+      "slug": "developers-openai-com-codex-ide-features",
+      "title": "Features – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-ide-features.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-ide-features.json",
+      "markdownBytes": 11631
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/settings",
+      "slug": "developers-openai-com-codex-ide-settings",
+      "title": "Settings – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-ide-settings.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-ide-settings.json",
+      "markdownBytes": 8075
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/slash-commands",
+      "slug": "developers-openai-com-codex-ide-slash-commands",
+      "title": "Slash commands – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-ide-slash-commands.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-ide-slash-commands.json",
+      "markdownBytes": 7297
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/github",
+      "slug": "developers-openai-com-codex-integrations-github",
+      "title": "Use Codex in GitHub | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-integrations-github.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-integrations-github.json",
+      "markdownBytes": 8597
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/slack",
+      "slug": "developers-openai-com-codex-integrations-slack",
+      "title": "Use Codex in Slack | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-integrations-slack.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-integrations-slack.json",
+      "markdownBytes": 9887
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/linear",
+      "slug": "developers-openai-com-codex-integrations-linear",
+      "title": "Use Codex in Linear | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-integrations-linear.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-integrations-linear.json",
+      "markdownBytes": 12337
+    },
+    {
+      "url": "https://developers.openai.com/codex/learn/best-practices",
+      "slug": "developers-openai-com-codex-learn-best-practices",
+      "title": "Best practices – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-learn-best-practices.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-learn-best-practices.json",
+      "markdownBytes": 21267
+    },
+    {
+      "url": "https://developers.openai.com/codex/llms-full.txt",
+      "slug": "developers-openai-com-codex-llms-full-txt",
+      "title": null,
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-llms-full-txt.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-llms-full-txt.json",
+      "markdownBytes": 750251
+    },
+    {
+      "url": "https://developers.openai.com/codex/llms.txt",
+      "slug": "developers-openai-com-codex-llms-txt",
+      "title": null,
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-llms-txt.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-llms-txt.json",
+      "markdownBytes": 10872
+    },
+    {
+      "url": "https://developers.openai.com/codex/mcp",
+      "slug": "developers-openai-com-codex-mcp",
+      "title": "Model Context Protocol – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-mcp.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-mcp.json",
+      "markdownBytes": 12640
+    },
+    {
+      "url": "https://developers.openai.com/codex/memories",
+      "slug": "developers-openai-com-codex-memories",
+      "title": "Memories – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-memories.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-memories.json",
+      "markdownBytes": 10113
+    },
+    {
+      "url": "https://developers.openai.com/codex/memories/chronicle",
+      "slug": "developers-openai-com-codex-memories-chronicle",
+      "title": "Chronicle – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-memories-chronicle.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-memories-chronicle.json",
+      "markdownBytes": 15053
+    },
+    {
+      "url": "https://developers.openai.com/codex/models",
+      "slug": "developers-openai-com-codex-models",
+      "title": "Models – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-models.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-models.json",
+      "markdownBytes": 10437
+    },
+    {
+      "url": "https://developers.openai.com/codex/noninteractive",
+      "slug": "developers-openai-com-codex-noninteractive",
+      "title": "Non-interactive mode – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-noninteractive.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-noninteractive.json",
+      "markdownBytes": 17649
+    },
+    {
+      "url": "https://developers.openai.com/codex/open-source",
+      "slug": "developers-openai-com-codex-open-source",
+      "title": "Open Source – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-open-source.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-open-source.json",
+      "markdownBytes": 7998
+    },
+    {
+      "url": "https://developers.openai.com/codex/plugins",
+      "slug": "developers-openai-com-codex-plugins",
+      "title": "Plugins – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-plugins.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-plugins.json",
+      "markdownBytes": 11395
+    },
+    {
+      "url": "https://developers.openai.com/codex/plugins/build",
+      "slug": "developers-openai-com-codex-plugins-build",
+      "title": "Build plugins – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-plugins-build.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-plugins-build.json",
+      "markdownBytes": 21605
+    },
+    {
+      "url": "https://developers.openai.com/codex/pricing",
+      "slug": "developers-openai-com-codex-pricing",
+      "title": "Pricing – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-pricing.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-pricing.json",
+      "markdownBytes": 23537
+    },
+    {
+      "url": "https://developers.openai.com/codex/pricing#image-generation-usage-limits",
+      "slug": "developers-openai-com-codex-pricing",
+      "title": "Pricing – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-pricing.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-pricing.json",
+      "markdownBytes": 23537
+    },
+    {
+      "url": "https://developers.openai.com/codex/prompting",
+      "slug": "developers-openai-com-codex-prompting",
+      "title": "Prompting – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-prompting.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-prompting.json",
+      "markdownBytes": 10138
+    },
+    {
+      "url": "https://developers.openai.com/codex/quickstart",
+      "slug": "developers-openai-com-codex-quickstart",
+      "title": "Quickstart – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-quickstart.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-quickstart.json",
+      "markdownBytes": 12988
+    },
+    {
+      "url": "https://developers.openai.com/codex/remote-connections",
+      "slug": "developers-openai-com-codex-remote-connections",
+      "title": "Remote connections – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-remote-connections.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-remote-connections.json",
+      "markdownBytes": 9170
+    },
+    {
+      "url": "https://developers.openai.com/codex/rules",
+      "slug": "developers-openai-com-codex-rules",
+      "title": "Rules – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-rules.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-rules.json",
+      "markdownBytes": 12326
+    },
+    {
+      "url": "https://developers.openai.com/codex/sdk",
+      "slug": "developers-openai-com-codex-sdk",
+      "title": "SDK – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-sdk.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-sdk.json",
+      "markdownBytes": 9065
+    },
+    {
+      "url": "https://developers.openai.com/codex/security/setup",
+      "slug": "developers-openai-com-codex-security-setup",
+      "title": "Setup – Codex Security | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-security-setup.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-security-setup.json",
+      "markdownBytes": 10757
+    },
+    {
+      "url": "https://developers.openai.com/codex/security",
+      "slug": "developers-openai-com-codex-security",
+      "title": "Security – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-security.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-security.json",
+      "markdownBytes": 8102
+    },
+    {
+      "url": "https://developers.openai.com/codex/speed",
+      "slug": "developers-openai-com-codex-speed",
+      "title": "Speed – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-speed.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-speed.json",
+      "markdownBytes": 7460
+    },
+    {
+      "url": "https://developers.openai.com/codex/skills",
+      "slug": "developers-openai-com-codex-skills",
+      "title": "Agent Skills – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-skills.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-skills.json",
+      "markdownBytes": 14021
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases",
+      "slug": "developers-openai-com-codex-use-cases",
+      "title": "Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases.json",
+      "markdownBytes": 16742
+    },
+    {
+      "url": "https://developers.openai.com/codex/subagents",
+      "slug": "developers-openai-com-codex-subagents",
+      "title": "Subagents – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-subagents.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-subagents.json",
+      "markdownBytes": 19968
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/chatgpt-apps",
+      "slug": "developers-openai-com-codex-use-cases-chatgpt-apps",
+      "title": "Bring your app to ChatGPT | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-chatgpt-apps.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-chatgpt-apps.json",
+      "markdownBytes": 13648
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/agent-friendly-clis",
+      "slug": "developers-openai-com-codex-use-cases-agent-friendly-clis",
+      "title": "Create a CLI Codex can use | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-agent-friendly-clis.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-agent-friendly-clis.json",
+      "markdownBytes": 11362
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/game-development",
+      "slug": "developers-openai-com-codex-use-cases-collections-game-development",
+      "title": "Game development – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-game-development.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-game-development.json",
+      "markdownBytes": 6981
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/codebase-onboarding",
+      "slug": "developers-openai-com-codex-use-cases-codebase-onboarding",
+      "title": "Understand large codebases | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-codebase-onboarding.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-codebase-onboarding.json",
+      "markdownBytes": 5053
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/native-development",
+      "slug": "developers-openai-com-codex-use-cases-collections-native-development",
+      "title": "Native development – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-native-development.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-native-development.json",
+      "markdownBytes": 7910
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/productivity-and-collaboration",
+      "slug": "developers-openai-com-codex-use-cases-collections-productivity-and-collaboration",
+      "title": "Productivity and collaboration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-productivity-and-collaboration.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-collections-productivity-and-collaboration.json",
+      "markdownBytes": 9347
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/figma-designs-to-code",
+      "slug": "developers-openai-com-codex-use-cases-figma-designs-to-code",
+      "title": "Turn Figma designs into code | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-figma-designs-to-code.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-figma-designs-to-code.json",
+      "markdownBytes": 11111
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/datasets-and-reports",
+      "slug": "developers-openai-com-codex-use-cases-datasets-and-reports",
+      "title": "Analyze datasets and ship reports | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-datasets-and-reports.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-datasets-and-reports.json",
+      "markdownBytes": 17336
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/frontend-designs",
+      "slug": "developers-openai-com-codex-use-cases-frontend-designs",
+      "title": "Build responsive front-end designs | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-frontend-designs.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-frontend-designs.json",
+      "markdownBytes": 9285
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/generate-slide-decks",
+      "slug": "developers-openai-com-codex-use-cases-generate-slide-decks",
+      "title": "Generate slide decks | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-generate-slide-decks.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-generate-slide-decks.json",
+      "markdownBytes": 11839
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/ios-liquid-glass",
+      "slug": "developers-openai-com-codex-use-cases-ios-liquid-glass",
+      "title": "Adopt liquid glass | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-ios-liquid-glass.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-ios-liquid-glass.json",
+      "markdownBytes": 13171
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/github-code-reviews",
+      "slug": "developers-openai-com-codex-use-cases-github-code-reviews",
+      "title": "Review pull requests faster | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-github-code-reviews.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-github-code-reviews.json",
+      "markdownBytes": 4108
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/macos-telemetry-logs",
+      "slug": "developers-openai-com-codex-use-cases-macos-telemetry-logs",
+      "title": "Add Mac telemetry | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-macos-telemetry-logs.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-macos-telemetry-logs.json",
+      "markdownBytes": 16036
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/ios-simulator-bug-debugging",
+      "slug": "developers-openai-com-codex-use-cases-ios-simulator-bug-debugging",
+      "title": "Debug in iOS simulator | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-ios-simulator-bug-debugging.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-ios-simulator-bug-debugging.json",
+      "markdownBytes": 13659
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/proactive-teammate",
+      "slug": "developers-openai-com-codex-use-cases-proactive-teammate",
+      "title": "Set up a teammate | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-proactive-teammate.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-proactive-teammate.json",
+      "markdownBytes": 9154
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/manage-your-inbox",
+      "slug": "developers-openai-com-codex-use-cases-manage-your-inbox",
+      "title": "Manage your inbox | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-manage-your-inbox.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-manage-your-inbox.json",
+      "markdownBytes": 8165
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/refactor-your-codebase",
+      "slug": "developers-openai-com-codex-use-cases-refactor-your-codebase",
+      "title": "Refactor your codebase | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-refactor-your-codebase.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-refactor-your-codebase.json",
+      "markdownBytes": 9609
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/slack-coding-tasks",
+      "slug": "developers-openai-com-codex-use-cases-slack-coding-tasks",
+      "title": "Kick off coding tasks from Slack | Codex use cases",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-use-cases-slack-coding-tasks.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-use-cases-slack-coding-tasks.json",
+      "markdownBytes": 3696
+    },
+    {
+      "url": "https://developers.openai.com/codex/videos",
+      "slug": "developers-openai-com-codex-videos",
+      "title": "Videos – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-videos.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-videos.json",
+      "markdownBytes": 6271
+    },
+    {
+      "url": "https://developers.openai.com/codex/windows",
+      "slug": "developers-openai-com-codex-windows",
+      "title": "Windows – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-windows.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-windows.json",
+      "markdownBytes": 19237
+    },
+    {
+      "url": "https://developers.openai.com/codex/workflows",
+      "slug": "developers-openai-com-codex-workflows",
+      "title": "Workflows – Codex | OpenAI Developers",
+      "markdownPath": "docs/official/pages/developers-openai-com-codex-workflows.md",
+      "metadataPath": "docs/official/pages/developers-openai-com-codex-workflows.json",
+      "markdownBytes": 16438
+    }
+  ],
+  "zhOutputDir": "docs/official-zh",
+  "zhPages": [
+    {
+      "url": "https://developers.openai.com/codex/",
+      "slug": "developers-openai-com-codex",
+      "title": "Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex.json",
+      "markdownBytes": 8426,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/agent-approvals-security",
+      "slug": "developers-openai-com-codex-agent-approvals-security",
+      "title": "Agent approvals & security – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-agent-approvals-security.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-agent-approvals-security.json",
+      "markdownBytes": 28343,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app",
+      "slug": "developers-openai-com-codex-app",
+      "title": "App – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app.json",
+      "markdownBytes": 11964,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app-server",
+      "slug": "developers-openai-com-codex-app-server",
+      "title": "App Server – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-server.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-server.json",
+      "markdownBytes": 76271,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/automations",
+      "slug": "developers-openai-com-codex-app-automations",
+      "title": "Automations – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-automations.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-automations.json",
+      "markdownBytes": 18552,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/browser",
+      "slug": "developers-openai-com-codex-app-browser",
+      "title": "In-app browser – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-browser.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-browser.json",
+      "markdownBytes": 10698,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/commands",
+      "slug": "developers-openai-com-codex-app-commands",
+      "title": "Commands – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-commands.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-commands.json",
+      "markdownBytes": 9142,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/computer-use",
+      "slug": "developers-openai-com-codex-app-computer-use",
+      "title": "Computer Use – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-computer-use.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-computer-use.json",
+      "markdownBytes": 12508,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/features",
+      "slug": "developers-openai-com-codex-app-features",
+      "title": "Features – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-features.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-features.json",
+      "markdownBytes": 27269,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/local-environments",
+      "slug": "developers-openai-com-codex-app-local-environments",
+      "title": "Local environments – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-local-environments.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-local-environments.json",
+      "markdownBytes": 8831,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/review",
+      "slug": "developers-openai-com-codex-app-review",
+      "title": "Review – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-review.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-review.json",
+      "markdownBytes": 10926,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/settings",
+      "slug": "developers-openai-com-codex-app-settings",
+      "title": "Settings – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-settings.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-settings.json",
+      "markdownBytes": 10300,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/troubleshooting",
+      "slug": "developers-openai-com-codex-app-troubleshooting",
+      "title": "Troubleshooting – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-troubleshooting.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-troubleshooting.json",
+      "markdownBytes": 11790,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/windows",
+      "slug": "developers-openai-com-codex-app-windows",
+      "title": "Windows – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-windows.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-windows.json",
+      "markdownBytes": 17669,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/app/worktrees",
+      "slug": "developers-openai-com-codex-app-worktrees",
+      "title": "Worktrees – Codex app | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-app-worktrees.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-app-worktrees.json",
+      "markdownBytes": 17625,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/auth",
+      "slug": "developers-openai-com-codex-auth",
+      "title": "Authentication – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-auth.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-auth.json",
+      "markdownBytes": 15933,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/auth/ci-cd-auth",
+      "slug": "developers-openai-com-codex-auth-ci-cd-auth",
+      "title": "Maintain Codex account auth in CI/CD (advanced) | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-auth-ci-cd-auth.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-auth-ci-cd-auth.json",
+      "markdownBytes": 14907,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/changelog",
+      "slug": "developers-openai-com-codex-changelog",
+      "title": "Changelog – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-changelog.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-changelog.json",
+      "markdownBytes": 268588,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli",
+      "slug": "developers-openai-com-codex-cli",
+      "title": "CLI – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cli.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cli.json",
+      "markdownBytes": 10288,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/features",
+      "slug": "developers-openai-com-codex-cli-features",
+      "title": "Features – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cli-features.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cli-features.json",
+      "markdownBytes": 24087,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/reference",
+      "slug": "developers-openai-com-codex-cli-reference",
+      "title": "Command line options – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cli-reference.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cli-reference.json",
+      "markdownBytes": 47901,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/features#image-generation",
+      "slug": "developers-openai-com-codex-cli-features",
+      "title": "Features – Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cli-features.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cli-features.json",
+      "markdownBytes": 24087,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud",
+      "slug": "developers-openai-com-codex-cloud",
+      "title": "Web – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cloud.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cloud.json",
+      "markdownBytes": 8201,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cli/slash-commands",
+      "slug": "developers-openai-com-codex-cli-slash-commands",
+      "title": "Slash commands in Codex CLI | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cli-slash-commands.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cli-slash-commands.json",
+      "markdownBytes": 24534,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud/internet-access",
+      "slug": "developers-openai-com-codex-cloud-internet-access",
+      "title": "Agent internet access – Codex web | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cloud-internet-access.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cloud-internet-access.json",
+      "markdownBytes": 10083,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/cloud/environments",
+      "slug": "developers-openai-com-codex-cloud-environments",
+      "title": "Cloud environments – Codex web | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-cloud-environments.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-cloud-environments.json",
+      "markdownBytes": 10669,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/codex-for-oss-terms",
+      "slug": "developers-openai-com-codex-codex-for-oss-terms",
+      "title": "For Open Source Program Terms – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-codex-for-oss-terms.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-codex-for-oss-terms.json",
+      "markdownBytes": 11623,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/customization",
+      "slug": "developers-openai-com-codex-concepts-customization",
+      "title": "Customization – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-customization.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-customization.json",
+      "markdownBytes": 14942,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/cyber-safety",
+      "slug": "developers-openai-com-codex-concepts-cyber-safety",
+      "title": "Cyber Safety – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-cyber-safety.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-cyber-safety.json",
+      "markdownBytes": 10644,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/sandboxing",
+      "slug": "developers-openai-com-codex-concepts-sandboxing",
+      "title": "Sandbox – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-sandboxing.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-sandboxing.json",
+      "markdownBytes": 14756,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/concepts/subagents",
+      "slug": "developers-openai-com-codex-concepts-subagents",
+      "title": "Subagents – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-subagents.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-concepts-subagents.json",
+      "markdownBytes": 11710,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-advanced",
+      "slug": "developers-openai-com-codex-config-advanced",
+      "title": "Advanced Configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-config-advanced.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-config-advanced.json",
+      "markdownBytes": 41375,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-basic",
+      "slug": "developers-openai-com-codex-config-basic",
+      "title": "Config basics – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-config-basic.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-config-basic.json",
+      "markdownBytes": 14269,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-reference",
+      "slug": "developers-openai-com-codex-config-reference",
+      "title": "Configuration Reference – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-config-reference.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-config-reference.json",
+      "markdownBytes": 85527,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/config-sample",
+      "slug": "developers-openai-com-codex-config-sample",
+      "title": "Sample Configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-config-sample.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-config-sample.json",
+      "markdownBytes": 31915,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/custom-prompts",
+      "slug": "developers-openai-com-codex-custom-prompts",
+      "title": "Custom Prompts – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-custom-prompts.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-custom-prompts.json",
+      "markdownBytes": 9411,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/governance",
+      "slug": "developers-openai-com-codex-enterprise-governance",
+      "title": "Governance – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-governance.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-governance.json",
+      "markdownBytes": 11307,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/admin-setup",
+      "slug": "developers-openai-com-codex-enterprise-admin-setup",
+      "title": "Admin Setup – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-admin-setup.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-admin-setup.json",
+      "markdownBytes": 27670,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/feature-maturity",
+      "slug": "developers-openai-com-codex-feature-maturity",
+      "title": "Feature Maturity – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-feature-maturity.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-feature-maturity.json",
+      "markdownBytes": 7020,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/enterprise/managed-configuration",
+      "slug": "developers-openai-com-codex-enterprise-managed-configuration",
+      "title": "Managed configuration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-managed-configuration.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-enterprise-managed-configuration.json",
+      "markdownBytes": 21002,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/agents-sdk",
+      "slug": "developers-openai-com-codex-guides-agents-sdk",
+      "title": "Use Codex with the Agents SDK | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-guides-agents-sdk.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-guides-agents-sdk.json",
+      "markdownBytes": 24764,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/agents-md",
+      "slug": "developers-openai-com-codex-guides-agents-md",
+      "title": "Custom instructions with AGENTS.md – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-guides-agents-md.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-guides-agents-md.json",
+      "markdownBytes": 13331,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team",
+      "slug": "developers-openai-com-codex-guides-build-ai-native-engineering-team",
+      "title": "Building an AI-Native Engineering Team – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-guides-build-ai-native-engineering-team.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-guides-build-ai-native-engineering-team.json",
+      "markdownBytes": 33635,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/hooks",
+      "slug": "developers-openai-com-codex-hooks",
+      "title": "Hooks – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-hooks.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-hooks.json",
+      "markdownBytes": 24140,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/commands",
+      "slug": "developers-openai-com-codex-ide-commands",
+      "title": "Commands – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-ide-commands.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-ide-commands.json",
+      "markdownBytes": 7321,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide",
+      "slug": "developers-openai-com-codex-ide",
+      "title": "IDE extension – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-ide.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-ide.json",
+      "markdownBytes": 12927,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/features",
+      "slug": "developers-openai-com-codex-ide-features",
+      "title": "Features – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-ide-features.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-ide-features.json",
+      "markdownBytes": 11631,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/settings",
+      "slug": "developers-openai-com-codex-ide-settings",
+      "title": "Settings – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-ide-settings.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-ide-settings.json",
+      "markdownBytes": 8075,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/ide/slash-commands",
+      "slug": "developers-openai-com-codex-ide-slash-commands",
+      "title": "Slash commands – Codex IDE | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-ide-slash-commands.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-ide-slash-commands.json",
+      "markdownBytes": 7297,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/github",
+      "slug": "developers-openai-com-codex-integrations-github",
+      "title": "Use Codex in GitHub | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-github.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-github.json",
+      "markdownBytes": 8597,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/slack",
+      "slug": "developers-openai-com-codex-integrations-slack",
+      "title": "Use Codex in Slack | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-slack.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-slack.json",
+      "markdownBytes": 9887,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/integrations/linear",
+      "slug": "developers-openai-com-codex-integrations-linear",
+      "title": "Use Codex in Linear | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-linear.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-integrations-linear.json",
+      "markdownBytes": 12337,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/learn/best-practices",
+      "slug": "developers-openai-com-codex-learn-best-practices",
+      "title": "Best practices – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-learn-best-practices.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-learn-best-practices.json",
+      "markdownBytes": 21267,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/llms.txt",
+      "slug": "developers-openai-com-codex-llms-txt",
+      "title": null,
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-llms-txt.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-llms-txt.json",
+      "markdownBytes": 10872,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/mcp",
+      "slug": "developers-openai-com-codex-mcp",
+      "title": "Model Context Protocol – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-mcp.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-mcp.json",
+      "markdownBytes": 12640,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/memories",
+      "slug": "developers-openai-com-codex-memories",
+      "title": "Memories – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-memories.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-memories.json",
+      "markdownBytes": 10113,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/memories/chronicle",
+      "slug": "developers-openai-com-codex-memories-chronicle",
+      "title": "Chronicle – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-memories-chronicle.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-memories-chronicle.json",
+      "markdownBytes": 15053,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/models",
+      "slug": "developers-openai-com-codex-models",
+      "title": "Models – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-models.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-models.json",
+      "markdownBytes": 10437,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/noninteractive",
+      "slug": "developers-openai-com-codex-noninteractive",
+      "title": "Non-interactive mode – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-noninteractive.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-noninteractive.json",
+      "markdownBytes": 17649,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/open-source",
+      "slug": "developers-openai-com-codex-open-source",
+      "title": "Open Source – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-open-source.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-open-source.json",
+      "markdownBytes": 7998,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/plugins",
+      "slug": "developers-openai-com-codex-plugins",
+      "title": "Plugins – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-plugins.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-plugins.json",
+      "markdownBytes": 11395,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/plugins/build",
+      "slug": "developers-openai-com-codex-plugins-build",
+      "title": "Build plugins – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-plugins-build.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-plugins-build.json",
+      "markdownBytes": 21605,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/pricing",
+      "slug": "developers-openai-com-codex-pricing",
+      "title": "Pricing – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-pricing.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-pricing.json",
+      "markdownBytes": 23537,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/pricing#image-generation-usage-limits",
+      "slug": "developers-openai-com-codex-pricing",
+      "title": "Pricing – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-pricing.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-pricing.json",
+      "markdownBytes": 23537,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/prompting",
+      "slug": "developers-openai-com-codex-prompting",
+      "title": "Prompting – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-prompting.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-prompting.json",
+      "markdownBytes": 10138,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/quickstart",
+      "slug": "developers-openai-com-codex-quickstart",
+      "title": "Quickstart – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-quickstart.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-quickstart.json",
+      "markdownBytes": 12988,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/remote-connections",
+      "slug": "developers-openai-com-codex-remote-connections",
+      "title": "Remote connections – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-remote-connections.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-remote-connections.json",
+      "markdownBytes": 9170,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/rules",
+      "slug": "developers-openai-com-codex-rules",
+      "title": "Rules – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-rules.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-rules.json",
+      "markdownBytes": 12326,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/sdk",
+      "slug": "developers-openai-com-codex-sdk",
+      "title": "SDK – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-sdk.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-sdk.json",
+      "markdownBytes": 9065,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/security/setup",
+      "slug": "developers-openai-com-codex-security-setup",
+      "title": "Setup – Codex Security | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-security-setup.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-security-setup.json",
+      "markdownBytes": 10757,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/security",
+      "slug": "developers-openai-com-codex-security",
+      "title": "Security – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-security.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-security.json",
+      "markdownBytes": 8102,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/speed",
+      "slug": "developers-openai-com-codex-speed",
+      "title": "Speed – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-speed.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-speed.json",
+      "markdownBytes": 7460,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/skills",
+      "slug": "developers-openai-com-codex-skills",
+      "title": "Agent Skills – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-skills.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-skills.json",
+      "markdownBytes": 14021,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases",
+      "slug": "developers-openai-com-codex-use-cases",
+      "title": "Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases.json",
+      "markdownBytes": 16742,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/subagents",
+      "slug": "developers-openai-com-codex-subagents",
+      "title": "Subagents – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-subagents.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-subagents.json",
+      "markdownBytes": 19968,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/chatgpt-apps",
+      "slug": "developers-openai-com-codex-use-cases-chatgpt-apps",
+      "title": "Bring your app to ChatGPT | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-chatgpt-apps.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-chatgpt-apps.json",
+      "markdownBytes": 13648,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/agent-friendly-clis",
+      "slug": "developers-openai-com-codex-use-cases-agent-friendly-clis",
+      "title": "Create a CLI Codex can use | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-agent-friendly-clis.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-agent-friendly-clis.json",
+      "markdownBytes": 11362,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/game-development",
+      "slug": "developers-openai-com-codex-use-cases-collections-game-development",
+      "title": "Game development – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-game-development.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-game-development.json",
+      "markdownBytes": 6981,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/codebase-onboarding",
+      "slug": "developers-openai-com-codex-use-cases-codebase-onboarding",
+      "title": "Understand large codebases | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-codebase-onboarding.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-codebase-onboarding.json",
+      "markdownBytes": 5053,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/native-development",
+      "slug": "developers-openai-com-codex-use-cases-collections-native-development",
+      "title": "Native development – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-native-development.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-native-development.json",
+      "markdownBytes": 7910,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/collections/productivity-and-collaboration",
+      "slug": "developers-openai-com-codex-use-cases-collections-productivity-and-collaboration",
+      "title": "Productivity and collaboration – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-productivity-and-collaboration.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-collections-productivity-and-collaboration.json",
+      "markdownBytes": 9347,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/figma-designs-to-code",
+      "slug": "developers-openai-com-codex-use-cases-figma-designs-to-code",
+      "title": "Turn Figma designs into code | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-figma-designs-to-code.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-figma-designs-to-code.json",
+      "markdownBytes": 11111,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/datasets-and-reports",
+      "slug": "developers-openai-com-codex-use-cases-datasets-and-reports",
+      "title": "Analyze datasets and ship reports | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-datasets-and-reports.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-datasets-and-reports.json",
+      "markdownBytes": 17336,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/frontend-designs",
+      "slug": "developers-openai-com-codex-use-cases-frontend-designs",
+      "title": "Build responsive front-end designs | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-frontend-designs.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-frontend-designs.json",
+      "markdownBytes": 9285,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/generate-slide-decks",
+      "slug": "developers-openai-com-codex-use-cases-generate-slide-decks",
+      "title": "Generate slide decks | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-generate-slide-decks.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-generate-slide-decks.json",
+      "markdownBytes": 11839,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/ios-liquid-glass",
+      "slug": "developers-openai-com-codex-use-cases-ios-liquid-glass",
+      "title": "Adopt liquid glass | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-ios-liquid-glass.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-ios-liquid-glass.json",
+      "markdownBytes": 13171,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/github-code-reviews",
+      "slug": "developers-openai-com-codex-use-cases-github-code-reviews",
+      "title": "Review pull requests faster | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-github-code-reviews.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-github-code-reviews.json",
+      "markdownBytes": 4108,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/macos-telemetry-logs",
+      "slug": "developers-openai-com-codex-use-cases-macos-telemetry-logs",
+      "title": "Add Mac telemetry | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-macos-telemetry-logs.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-macos-telemetry-logs.json",
+      "markdownBytes": 16036,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/ios-simulator-bug-debugging",
+      "slug": "developers-openai-com-codex-use-cases-ios-simulator-bug-debugging",
+      "title": "Debug in iOS simulator | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-ios-simulator-bug-debugging.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-ios-simulator-bug-debugging.json",
+      "markdownBytes": 13659,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/proactive-teammate",
+      "slug": "developers-openai-com-codex-use-cases-proactive-teammate",
+      "title": "Set up a teammate | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-proactive-teammate.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-proactive-teammate.json",
+      "markdownBytes": 9154,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/manage-your-inbox",
+      "slug": "developers-openai-com-codex-use-cases-manage-your-inbox",
+      "title": "Manage your inbox | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-manage-your-inbox.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-manage-your-inbox.json",
+      "markdownBytes": 8165,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/refactor-your-codebase",
+      "slug": "developers-openai-com-codex-use-cases-refactor-your-codebase",
+      "title": "Refactor your codebase | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-refactor-your-codebase.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-refactor-your-codebase.json",
+      "markdownBytes": 9609,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/use-cases/slack-coding-tasks",
+      "slug": "developers-openai-com-codex-use-cases-slack-coding-tasks",
+      "title": "Kick off coding tasks from Slack | Codex use cases",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-slack-coding-tasks.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-use-cases-slack-coding-tasks.json",
+      "markdownBytes": 3696,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/videos",
+      "slug": "developers-openai-com-codex-videos",
+      "title": "Videos – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-videos.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-videos.json",
+      "markdownBytes": 6271,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/windows",
+      "slug": "developers-openai-com-codex-windows",
+      "title": "Windows – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-windows.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-windows.json",
+      "markdownBytes": 19237,
+      "language": "zh-CN"
+    },
+    {
+      "url": "https://developers.openai.com/codex/workflows",
+      "slug": "developers-openai-com-codex-workflows",
+      "title": "Workflows – Codex | OpenAI Developers",
+      "markdownPath": "docs/official-zh/pages/developers-openai-com-codex-workflows.md",
+      "metadataPath": "docs/official-zh/pages/developers-openai-com-codex-workflows.json",
+      "markdownBytes": 16438,
+      "language": "zh-CN"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://developers.openai.com/codex/llms-full.txt",
+      "error": "Translation failed: OpenAI translation failed with status 400."
+    }
+  ]
+}
