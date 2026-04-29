@@ -22,41 +22,41 @@
 Codex 帮助保护您的代码和数据，减少误用的风险。
 
 继续往下看，这一节还强调了两件事：
-- 本页面涵盖了如何安全地操作 Codex，包括沙箱、审批和网络访问。如果您正在寻找用于扫描连接的 GitHub 仓库的 Codex 安全产品，请参见 Codex 安全。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 默认情况下，代理在网络访问关闭的情况下运行。在本地，Codex 使用操作系统强制的沙箱，它限制它可以接触的内容（通常是当前工作区），加上一个审批政策，控制何时需要在执行操作之前停止并询问您。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 有关沙箱如何在 Codex 应用程序、IDE 扩展和 CLI 中工作的高级解释，请参见 沙箱。有关更广泛的企业安全概述，请参见 Codex 安全白皮书。（实现：[app-server run_main](/config/workspace/codex/codex-rs/app-server/src/lib.rs:295)、[CodexMessageProcessor](/config/workspace/codex/codex-rs/app-server/src/codex_message_processor.rs:399)、[transport](/config/workspace/codex/codex-rs/app-server/src/transport.rs:73)、[thread_state](/config/workspace/codex/codex-rs/app-server/src/thread_state.rs:1)）
+- 本页面涵盖了如何安全地操作 Codex，包括沙箱、审批和网络访问。如果您正在寻找用于扫描连接的 GitHub 仓库的 Codex 安全产品，请参见 Codex 安全。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 默认情况下，代理在网络访问关闭的情况下运行。在本地，Codex 使用操作系统强制的沙箱，它限制它可以接触的内容（通常是当前工作区），加上一个审批政策，控制何时需要在执行操作之前停止并询问您。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 有关沙箱如何在 Codex 应用程序、IDE 扩展和 CLI 中工作的高级解释，请参见 沙箱。有关更广泛的企业安全概述，请参见 Codex 安全白皮书。（实现：[app-server run_main](/codex/codex-rs/app-server/src/lib.rs#L295)、[CodexMessageProcessor](/codex/codex-rs/app-server/src/codex_message_processor.rs#L399)、[transport](/codex/codex-rs/app-server/src/transport.rs#L73)、[thread_state](/codex/codex-rs/app-server/src/thread_state.rs#L1)）
 
 ### 沙箱和审批
 Codex 安全控制来自两个协同工作的层次：
 
 继续往下看，这一节还强调了两件事：
-- **沙箱模式**：Codex 在执行模型生成的命令时技术上可以做什么（例如，它可以在哪里写作，是否可以访问网络）。（实现：[ModelsManager](/config/workspace/codex/codex-rs/core/src/models_manager/manager.rs:55)、[model_info](/config/workspace/codex/codex-rs/core/src/models_manager/model_info.rs:1)、[model_presets](/config/workspace/codex/codex-rs/core/src/models_manager/model_presets.rs:1)、[supported_models](/config/workspace/codex/codex-rs/app-server/src/models.rs:10)）
-- **审批政策**：当 Codex 执行某个操作时，必须在执行之前询问您（例如，离开沙箱、使用网络或运行不在可信集合中的命令）。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
+- **沙箱模式**：Codex 在执行模型生成的命令时技术上可以做什么（例如，它可以在哪里写作，是否可以访问网络）。（实现：[ModelsManager](/codex/codex-rs/core/src/models_manager/manager.rs#L55)、[model_info](/codex/codex-rs/core/src/models_manager/model_info.rs#L1)、[model_presets](/codex/codex-rs/core/src/models_manager/model_presets.rs#L1)、[supported_models](/codex/codex-rs/app-server/src/models.rs#L10)）
+- **审批政策**：当 Codex 执行某个操作时，必须在执行之前询问您（例如，离开沙箱、使用网络或运行不在可信集合中的命令）。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
 - Codex 根据您运行它的位置使用不同的沙箱模式：
 
 ### 网络访问 提高风险
 有关 Codex 云，请参见 代理互联网访问 以启用完全互联网访问或域允许列表。
 
 继续往下看，这一节还强调了两件事：
-- 对于 Codex 应用、CLI 或 IDE 扩展，默认的 `workspace-write` 沙箱模式保持网络访问关闭，除非您在配置中启用它：（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 您还可以在不授予完全网络访问权限的情况下控制 网络搜索工具。Codex 默认使用网络搜索缓存来访问结果。缓存是 OpenAI 维护的网络结果索引，因此缓存模式返回预先索引的结果，而不是提取实时页面。这减少了来自任意实时内容的提示注入的暴露，但您仍应将网络结果视为不可信。如果您使用 `--yolo` …（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 在 Codex 中启用网络访问或网络搜索时请谨慎。提示注入可能导致代理获取并遵循不可信的指令。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
+- 对于 Codex 应用、CLI 或 IDE 扩展，默认的 `workspace-write` 沙箱模式保持网络访问关闭，除非您在配置中启用它：（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 您还可以在不授予完全网络访问权限的情况下控制 网络搜索工具。Codex 默认使用网络搜索缓存来访问结果。缓存是 OpenAI 维护的网络结果索引，因此缓存模式返回预先索引的结果，而不是提取实时页面。这减少了来自任意实时内容的提示注入的暴露，但您仍应将网络结果视为不可信。如果您使用 `--yolo` …（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 在 Codex 中启用网络访问或网络搜索时请谨慎。提示注入可能导致代理获取并遵循不可信的指令。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
 
 ### 默认值和推荐
 启动时，Codex 检测文件夹是否受版本控制，然后建议：
 
 继续往下看，这一节还强调了两件事：
-- 受版本控制的文件夹：`Auto`（工作区写入 + 请求时审批）（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 非版本控制的文件夹：`read-only`（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- 根据您的设置，Codex 也可能在明确信任工作目录之前以 `read-only` 开始（例如，通过入职提示或 `/permissions`）。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
+- 受版本控制的文件夹：`Auto`（工作区写入 + 请求时审批）（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 非版本控制的文件夹：`read-only`（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- 根据您的设置，Codex 也可能在明确信任工作目录之前以 `read-only` 开始（例如，通过入职提示或 `/permissions`）。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
 
 ### 可写根中的受保护路径
-在默认的 `workspace-write` 沙箱策略中，可写根仍包括受保护路径：（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
+在默认的 `workspace-write` 沙箱策略中，可写根仍包括受保护路径：（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
 
 继续往下看，这一节还强调了两件事：
-- `<writable_root>/.git` 不论作为目录还是文件出现，都作为只读受保护。（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
-- 如果 `<writable_root>/.git` 是一个指针文件（`gitdir: ...`），解析后的 Git 目录路径也是只读受保护。（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
-- `<writable_root>/.agents` 在存在为目录时受保护为只读。（实现：[custom_prompts](/config/workspace/codex/codex-rs/core/src/custom_prompts.rs:9)、[project_doc](/config/workspace/codex/codex-rs/core/src/project_doc.rs:134)、[instructions/user_instructions](/config/workspace/codex/codex-rs/core/src/instructions/user_instructions.rs:1)）
+- `<writable_root>/.git` 不论作为目录还是文件出现，都作为只读受保护。（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
+- 如果 `<writable_root>/.git` 是一个指针文件（`gitdir: ...`），解析后的 Git 目录路径也是只读受保护。（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
+- `<writable_root>/.agents` 在存在为目录时受保护为只读。（实现：[custom_prompts](/codex/codex-rs/core/src/custom_prompts.rs#L9)、[project_doc](/codex/codex-rs/core/src/project_doc.rs#L134)、[instructions/user_instructions](/codex/codex-rs/core/src/instructions/user_instructions.rs#L1)）
 
 ## 代码结构图
 审批与安全和“沙盒本体”不完全一样，它更强调策略层、审批层、平台执行层之间的联动。

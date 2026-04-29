@@ -19,27 +19,27 @@
 
 ## 正文整理
 ### 正文
-在 Codex 应用中，工作树使 Codex 能够在同一个项目中运行多个独立任务，而不会相互干扰。对于 Git 仓库，自动化 在专用后台工作树上运行，以免与您正在进行的工作发生冲突。在非版本控制的项目中，自动化直接在项目目录中运行。您还可以手动在工作树上启动线程，并使用 Handoff 将线程在本地和工作树之间移动。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+在 Codex 应用中，工作树使 Codex 能够在同一个项目中运行多个独立任务，而不会相互干扰。对于 Git 仓库，自动化 在专用后台工作树上运行，以免与您正在进行的工作发生冲突。在非版本控制的项目中，自动化直接在项目目录中运行。您还可以手动在工作树上启动线程，并使用 Handoff 将线程在本地和工作树之间移动。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 ### 什么是工作树
-工作树仅在 Git 仓库中的项目中有效，因为它们在底层使用 Git 工作树。工作树允许您创建仓库的第二个副本（“检出”）。每个工作树都有您仓库中每个文件的独立副本，但它们都共享有关提交、分支等相同的元数据（`.git` 文件夹）。这使您能够并行检出并在多个分支上工作。（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
+工作树仅在 Git 仓库中的项目中有效，因为它们在底层使用 Git 工作树。工作树允许您创建仓库的第二个副本（“检出”）。每个工作树都有您仓库中每个文件的独立副本，但它们都共享有关提交、分支等相同的元数据（`.git` 文件夹）。这使您能够并行检出并在多个分支上工作。（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
 
 ### 术语
-**本地检出**：您创建的仓库。在 Codex 应用中有时仅称为 **本地**。（实现：[app-server run_main](/config/workspace/codex/codex-rs/app-server/src/lib.rs:295)、[CodexMessageProcessor](/config/workspace/codex/codex-rs/app-server/src/codex_message_processor.rs:399)、[transport](/config/workspace/codex/codex-rs/app-server/src/transport.rs:73)、[thread_state](/config/workspace/codex/codex-rs/app-server/src/thread_state.rs:1)）
+**本地检出**：您创建的仓库。在 Codex 应用中有时仅称为 **本地**。（实现：[app-server run_main](/codex/codex-rs/app-server/src/lib.rs#L295)、[CodexMessageProcessor](/codex/codex-rs/app-server/src/codex_message_processor.rs#L399)、[transport](/codex/codex-rs/app-server/src/transport.rs#L73)、[thread_state](/codex/codex-rs/app-server/src/thread_state.rs#L1)）
 
 继续往下看，这一节还强调了两件事：
-- **工作树**：从您在 Codex 应用中本地检出创建的 Git 工作树。（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
-- **Handoff**：将线程在本地和工作树之间移动的流程。Codex 处理所需的 Git 操作，以安全地在它们之间移动您的工作。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+- **工作树**：从您在 Codex 应用中本地检出创建的 Git 工作树。（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
+- **Handoff**：将线程在本地和工作树之间移动的流程。Codex 处理所需的 Git 操作，以安全地在它们之间移动您的工作。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 ### 为什么使用工作树
-1. 与 Codex 并行工作，而不会干扰您当前的本地设置。 2. 在您专注于前台的同时排队后台工作。 3. 当您准备好检查、测试或更直接地协作时，将线程移动到本地。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+1. 与 Codex 并行工作，而不会干扰您当前的本地设置。 2. 在您专注于前台的同时排队后台工作。 3. 当您准备好检查、测试或更直接地协作时，将线程移动到本地。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 ### 入门
-工作树需要一个 Git 仓库。确保您选择的项目位于其中。（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
+工作树需要一个 Git 仓库。确保您选择的项目位于其中。（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
 
 继续往下看，这一节还强调了两件事：
-- 1. 选择“工作树”（实现：[git_info](/config/workspace/codex/codex-rs/core/src/git_info.rs:1)、[undo task](/config/workspace/codex/codex-rs/core/src/tasks/undo.rs:1)、[review prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[commit_attribution](/config/workspace/codex/codex-rs/core/src/commit_attribution.rs:1)）
-- 在新线程视图中，在撰写器下选择 **工作树**。 可选地，选择一个 本地环境 来运行工作树的设置脚本。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+- 1. 选择“工作树”（实现：[git_info](/codex/codex-rs/core/src/git_info.rs#L1)、[undo task](/codex/codex-rs/core/src/tasks/undo.rs#L1)、[review prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[commit_attribution](/codex/codex-rs/core/src/commit_attribution.rs#L1)）
+- 在新线程视图中，在撰写器下选择 **工作树**。 可选地，选择一个 本地环境 来运行工作树的设置脚本。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 - 2. 选择起始分支
 
 ## 小结

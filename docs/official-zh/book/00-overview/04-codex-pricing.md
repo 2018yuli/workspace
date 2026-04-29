@@ -31,12 +31,12 @@
 - $8/月
 
 ### Plus
-每周进行几次集中的编码会话。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+每周进行几次集中的编码会话。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 继续往下看，这一节还强调了两件事：
 - $20/月
-- Codex 在 Web、CLI、IDE 扩展和 iOS 上（实现：[app-server run_main](/config/workspace/codex/codex-rs/app-server/src/lib.rs:295)、[CodexMessageProcessor](/config/workspace/codex/codex-rs/app-server/src/codex_message_processor.rs:399)、[transport](/config/workspace/codex/codex-rs/app-server/src/transport.rs:73)、[thread_state](/config/workspace/codex/codex-rs/app-server/src/thread_state.rs:1)）
-- 云集成，如自动代码审查和 Slack 集成（实现：[review_prompts](/config/workspace/codex/codex-rs/core/src/review_prompts.rs:22)、[tasks/review](/config/workspace/codex/codex-rs/core/src/tasks/review.rs:1)、[app-server review tests](/config/workspace/codex/codex-rs/app-server/tests/suite/v2/review.rs:1)）
+- Codex 在 Web、CLI、IDE 扩展和 iOS 上（实现：[app-server run_main](/codex/codex-rs/app-server/src/lib.rs#L295)、[CodexMessageProcessor](/codex/codex-rs/app-server/src/codex_message_processor.rs#L399)、[transport](/codex/codex-rs/app-server/src/transport.rs#L73)、[thread_state](/codex/codex-rs/app-server/src/thread_state.rs#L1)）
+- 云集成，如自动代码审查和 Slack 集成（实现：[review_prompts](/codex/codex-rs/core/src/review_prompts.rs#L22)、[tasks/review](/codex/codex-rs/core/src/tasks/review.rs#L1)、[app-server review tests](/codex/codex-rs/app-server/tests/suite/v2/review.rs#L1)）
 
 ## 小结
 读完这一章后，最重要的不是记住页面上的每个术语，而是知道它在整个 Codex 体系里负责解决什么问题。

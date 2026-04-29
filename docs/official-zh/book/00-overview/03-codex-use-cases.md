@@ -24,7 +24,7 @@
 继续往下看，这一节还强调了两件事：
 - 工程
 - 评估
-- 前端（实现：[app-server run_main](/config/workspace/codex/codex-rs/app-server/src/lib.rs:295)、[CodexMessageProcessor](/config/workspace/codex/codex-rs/app-server/src/codex_message_processor.rs:399)、[transport](/config/workspace/codex/codex-rs/app-server/src/transport.rs:73)、[thread_state](/config/workspace/codex/codex-rs/app-server/src/thread_state.rs:1)）
+- 前端（实现：[app-server run_main](/codex/codex-rs/app-server/src/lib.rs#L295)、[CodexMessageProcessor](/codex/codex-rs/app-server/src/codex_message_processor.rs#L399)、[transport](/codex/codex-rs/app-server/src/transport.rs#L73)、[thread_state](/codex/codex-rs/app-server/src/thread_state.rs#L1)）
 
 ### 原生
 iOS
@@ -33,7 +33,7 @@ iOS
 - macOS
 
 ### 工作流程
-自动化（实现：[StateRuntime::create_agent_job](/config/workspace/codex/codex-rs/state/src/runtime.rs:917)、[StateRuntime::report_agent_job_item_result](/config/workspace/codex/codex-rs/state/src/runtime.rs:1337)、[cloud-tasks App](/config/workspace/codex/codex-rs/cloud-tasks/src/app.rs:47)、[cloud-tasks CLI](/config/workspace/codex/codex-rs/cloud-tasks/src/cli.rs:7)）
+自动化（实现：[StateRuntime::create_agent_job](/codex/codex-rs/state/src/runtime.rs#L917)、[StateRuntime::report_agent_job_item_result](/codex/codex-rs/state/src/runtime.rs#L1337)、[cloud-tasks App](/codex/codex-rs/cloud-tasks/src/app.rs#L47)、[cloud-tasks CLI](/codex/codex-rs/cloud-tasks/src/cli.rs#L7)）
 
 继续往下看，这一节还强调了两件事：
 - 数据

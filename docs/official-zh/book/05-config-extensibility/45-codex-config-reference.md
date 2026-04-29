@@ -12,14 +12,14 @@
 
 ## 正文整理
 ### 正文
-使用此页面作为 Codex 配置文件的可搜索参考。有关概念指导和示例，请从 配置基础 和 高级配置 开始。（实现：[config/state](/config/workspace/codex/codex-rs/config/src/state.rs:118)、[config/constraint](/config/workspace/codex/codex-rs/config/src/constraint.rs:51)、[config/config_requirements](/config/workspace/codex/codex-rs/config/src/config_requirements.rs:78)、[config/overrides](/config/workspace/codex/codex-rs/config/src/overrides.rs:7)）
+使用此页面作为 Codex 配置文件的可搜索参考。有关概念指导和示例，请从 配置基础 和 高级配置 开始。（实现：[config/state](/codex/codex-rs/config/src/state.rs#L118)、[config/constraint](/codex/codex-rs/config/src/constraint.rs#L51)、[config/config_requirements](/codex/codex-rs/config/src/config_requirements.rs#L78)、[config/overrides](/codex/codex-rs/config/src/overrides.rs#L7)）
 
 ### `config.toml`
-用户级配置保存在 `~/.codex/config.toml` 中。您还可以在 `.codex/config.toml` 文件中添加项目范围的覆盖。Codex 仅在您信任该项目时加载项目范围的配置文件。（实现：[config/state](/config/workspace/codex/codex-rs/config/src/state.rs:118)、[config/constraint](/config/workspace/codex/codex-rs/config/src/constraint.rs:51)、[config/config_requirements](/config/workspace/codex/codex-rs/config/src/config_requirements.rs:78)、[config/overrides](/config/workspace/codex/codex-rs/config/src/overrides.rs:7)）
+用户级配置保存在 `~/.codex/config.toml` 中。您还可以在 `.codex/config.toml` 文件中添加项目范围的覆盖。Codex 仅在您信任该项目时加载项目范围的配置文件。（实现：[config/state](/codex/codex-rs/config/src/state.rs#L118)、[config/constraint](/codex/codex-rs/config/src/constraint.rs#L51)、[config/config_requirements](/codex/codex-rs/config/src/config_requirements.rs#L78)、[config/overrides](/codex/codex-rs/config/src/overrides.rs#L7)）
 
 继续往下看，这一节还强调了两件事：
-- 对于沙盒和批准密钥 (`approval_policy`、`sandbox_mode` 和 `sandbox_workspace_write.*`)，请将此参考与 沙盒和批准、可写根中的受保护路径 和 网络访问 一起使用。（实现：[sandboxing/mod](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:38)、[SandboxManager](/config/workspace/codex/codex-rs/core/src/sandboxing/mod.rs:291)、[config/permissions](/config/workspace/codex/codex-rs/core/src/config/permissions.rs:9)、[linux-sandbox](/config/workspace/codex/codex-rs/linux-sandbox/src/lib.rs:18)）
-- | 键 | 类型 / 值 | 详情 | | --- | --- | --- | | `agents.<name>.config_file` | `string (path)` | 此角色的 TOML 配置层的路径；相对路径以声明角色的配置文件为基准解析。 | | `agents.<name>.des…（实现：[config/state](/config/workspace/codex/codex-rs/config/src/state.rs:118)、[config/constraint](/config/workspace/codex/codex-rs/config/src/constraint.rs:51)、[config/config_requirements](/config/workspace/codex/codex-rs/config/src/config_requirements.rs:78)、[config/overrides](/config/workspace/codex/codex-rs/config/src/overrides.rs:7)）
+- 对于沙盒和批准密钥 (`approval_policy`、`sandbox_mode` 和 `sandbox_workspace_write.*`)，请将此参考与 沙盒和批准、可写根中的受保护路径 和 网络访问 一起使用。（实现：[sandboxing/mod](/codex/codex-rs/core/src/sandboxing/mod.rs#L38)、[SandboxManager](/codex/codex-rs/core/src/sandboxing/mod.rs#L291)、[config/permissions](/codex/codex-rs/core/src/config/permissions.rs#L9)、[linux-sandbox](/codex/codex-rs/linux-sandbox/src/lib.rs#L18)）
+- | 键 | 类型 / 值 | 详情 | | --- | --- | --- | | `agents.<name>.config_file` | `string (path)` | 此角色的 TOML 配置层的路径；相对路径以声明角色的配置文件为基准解析。 | | `agents.<name>.des…（实现：[config/state](/codex/codex-rs/config/src/state.rs#L118)、[config/constraint](/codex/codex-rs/config/src/constraint.rs#L51)、[config/config_requirements](/codex/codex-rs/config/src/config_requirements.rs#L78)、[config/overrides](/codex/codex-rs/config/src/overrides.rs#L7)）
 - 键
 
 ## 小结

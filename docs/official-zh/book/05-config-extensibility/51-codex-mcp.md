@@ -19,10 +19,10 @@
 
 ## 正文整理
 ### 正文
-模型上下文协议 (MCP) 将模型连接到工具和上下文。使用它来让 Codex 访问第三方文档，或者让它与开发者工具如您的浏览器或 Figma 进行交互。（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+模型上下文协议 (MCP) 将模型连接到工具和上下文。使用它来让 Codex 访问第三方文档，或者让它与开发者工具如您的浏览器或 Figma 进行交互。（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 继续往下看，这一节还强调了两件事：
-- Codex 在 CLI 和 IDE 插件中均支持 MCP 服务器。（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
+- Codex 在 CLI 和 IDE 插件中均支持 MCP 服务器。（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
 
 ### 支持的 MCP 特性
 **STDIO 服务器**：作为本地进程运行的服务器（通过命令启动）。
@@ -33,18 +33,18 @@
 - Bearer 令牌身份验证
 
 ### 将 Codex 连接到 MCP 服务器
-Codex 将 MCP 配置存储在 `config.toml` 中，与其他 Codex 配置设置并排放置。默认情况下是 `~/.codex/config.toml`，但您也可以通过 `.codex/config.toml`（仅限受信项目）将 MCP 服务器范围限制到一个项目。（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
+Codex 将 MCP 配置存储在 `config.toml` 中，与其他 Codex 配置设置并排放置。默认情况下是 `~/.codex/config.toml`，但您也可以通过 `.codex/config.toml`（仅限受信项目）将 MCP 服务器范围限制到一个项目。（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
 
 继续往下看，这一节还强调了两件事：
-- CLI 和 IDE 插件共享此配置。一旦配置了 MCP 服务器，您可以在两个 Codex 客户端之间切换，而无需重新设置。（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
-- 要配置 MCP 服务器，请选择一个选项：（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
-- 1. **使用 CLI**：运行 `codex mcp` 添加和管理服务器。 2. **编辑 `config.toml`**：直接更新 `~/.codex/config.toml`（或在受信项目中的项目范围的 `.codex/config.toml`）。（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
+- CLI 和 IDE 插件共享此配置。一旦配置了 MCP 服务器，您可以在两个 Codex 客户端之间切换，而无需重新设置。（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
+- 要配置 MCP 服务器，请选择一个选项：（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
+- 1. **使用 CLI**：运行 `codex mcp` 添加和管理服务器。 2. **编辑 `config.toml`**：直接更新 `~/.codex/config.toml`（或在受信项目中的项目范围的 `.codex/config.toml`）。（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
 
 ### 添加 MCP 服务器
-例如，要添加 Context7（一个免费用于开发文档的 MCP 服务器），您可以运行以下命令：（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
+例如，要添加 Context7（一个免费用于开发文档的 MCP 服务器），您可以运行以下命令：（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
 
 ### 其他 CLI 命令
-要查看所有可用的 MCP 命令，您可以运行 `codex mcp --help`。（实现：[mcp_connection_manager](/config/workspace/codex/codex-rs/core/src/mcp_connection_manager.rs:546)、[mcp_tool_call](/config/workspace/codex/codex-rs/core/src/mcp_tool_call.rs:1)、[core/mcp/mod](/config/workspace/codex/codex-rs/core/src/mcp/mod.rs:1)、[mcp-server/lib](/config/workspace/codex/codex-rs/mcp-server/src/lib.rs:51)）
+要查看所有可用的 MCP 命令，您可以运行 `codex mcp --help`。（实现：[mcp_connection_manager](/codex/codex-rs/core/src/mcp_connection_manager.rs#L546)、[mcp_tool_call](/codex/codex-rs/core/src/mcp_tool_call.rs#L1)、[core/mcp/mod](/codex/codex-rs/core/src/mcp/mod.rs#L1)、[mcp-server/lib](/codex/codex-rs/mcp-server/src/lib.rs#L51)）
 
 ## 代码结构图
 MCP 的结构本质上分成三层：连接管理层、工具调用桥接层、服务端协议层。

@@ -19,10 +19,10 @@
 要为 Codex 命令分配或更改键绑定：
 
 继续往下看，这一节还强调了两件事：
-- 1. 打开命令面板（ **Cmd+Shift+P** 在 macOS 上或 **Ctrl+Shift+P** 在 Windows/Linux 上）。 2. 运行 **首选项：打开键盘快捷键**。 3. 搜索 `Codex` 或命令 ID（例如 `chatgpt.newChat`）。 4. 选择铅笔图标，然后输入您想要的快捷键。（实现：[web_search](/config/workspace/codex/codex-rs/core/src/web_search.rs:18)、[network_policy_decision](/config/workspace/codex/codex-rs/core/src/network_policy_decision.rs:1)、[network-proxy](/config/workspace/codex/codex-rs/network-proxy/src/lib.rs:1)）
+- 1. 打开命令面板（ **Cmd+Shift+P** 在 macOS 上或 **Ctrl+Shift+P** 在 Windows/Linux 上）。 2. 运行 **首选项：打开键盘快捷键**。 3. 搜索 `Codex` 或命令 ID（例如 `chatgpt.newChat`）。 4. 选择铅笔图标，然后输入您想要的快捷键。（实现：[web_search](/codex/codex-rs/core/src/web_search.rs#L18)、[network_policy_decision](/codex/codex-rs/core/src/network_policy_decision.rs#L1)、[network-proxy](/codex/codex-rs/network-proxy/src/lib.rs#L1)）
 
 ### 扩展命令
-| 命令 | 默认键绑定 | 描述 | | --- | --- | --- | | `chatgpt.addToThread` | - | 将选定文本范围添加为当前线程的上下文 | | `chatgpt.addFileToThread` | - | 将整个文件添加为当前线程的上下文 | | `chatgpt.newChat` | macOS: `Cmd+N`<br>Windows/Linux: `Ctrl+N` | 创建一个新线程 | …（实现：[CodexThread](/config/workspace/codex/codex-rs/core/src/codex_thread.rs:37)、[ThreadManager](/config/workspace/codex/codex-rs/core/src/thread_manager.rs:120)、[context_manager](/config/workspace/codex/codex-rs/core/src/context_manager/mod.rs:1)、[message_history](/config/workspace/codex/codex-rs/core/src/message_history.rs:1)）
+| 命令 | 默认键绑定 | 描述 | | --- | --- | --- | | `chatgpt.addToThread` | - | 将选定文本范围添加为当前线程的上下文 | | `chatgpt.addFileToThread` | - | 将整个文件添加为当前线程的上下文 | | `chatgpt.newChat` | macOS: `Cmd+N`<br>Windows/Linux: `Ctrl+N` | 创建一个新线程 | …（实现：[CodexThread](/codex/codex-rs/core/src/codex_thread.rs#L37)、[ThreadManager](/codex/codex-rs/core/src/thread_manager.rs#L120)、[context_manager](/codex/codex-rs/core/src/context_manager/mod.rs#L1)、[message_history](/codex/codex-rs/core/src/message_history.rs#L1)）
 
 ## 小结
 读完这一章后，最重要的不是记住页面上的每个术语，而是知道它在整个 Codex 体系里负责解决什么问题。
