@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sdoc"
+version = "0.1.0"
+description = "根据源代码相对路径生成通俗易懂的代码架构 Markdown 文档"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "yu li" }
+]
+dependencies = [
+  "tree-sitter>=0.25.2,<0.26",
+  "tree-sitter-rust>=0.24.2,<0.25",
+  "tree-sitter-python>=0.25.0,<0.26",
+  "tree-sitter-javascript>=0.25.0,<0.26",
+  "tree-sitter-typescript>=0.23.2,<0.24",
+  "tree-sitter-java>=0.23.5,<0.24",
+  "tree-sitter-go>=0.25.0,<0.26"
+]
+keywords = ["tree-sitter", "documentation", "architecture", "markdown", "code-analysis"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.scripts]
+sdoc = "sdoc.cli:cli"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

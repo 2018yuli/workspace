@@ -1,0 +1,21 @@
+[sdoc]
+project_root = "."
+recursive_depth = 1
+include_tests = false
+include_hidden = false
+include_readme_context = true
+include_manifest_context = true
+max_files = 80
+max_file_size_kb = 512
+max_definition_table_rows = 20
+max_snippets = 3
+snippet_max_lines = 18
+summary_sentence_limit = 4
+max_difficulty_notes = 5
+concurrency = 8
+enable_cache = true
+cache_file = ".sdoc-cache.json"
+cache_version = "2026-05-13"
+log_level = "INFO"
+fail_on_unsupported_language = true
+template_title_suffix = "代码架构文档"
