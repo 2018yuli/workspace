@@ -12,6 +12,7 @@ class TemplateTest(unittest.TestCase):
             title="mod 代码架构文档",
             entry_file="/repo/src/mod.rs",
             target_directory="/repo/src",
+            project_root="/repo",
             languages=["rust"],
             executive_summary="这是摘要。",
             functional_description=["说明一。", "说明二。"],
@@ -56,6 +57,7 @@ class TemplateTest(unittest.TestCase):
         self.assertIn("```mermaid", markdown)
         self.assertIn("关键结构与职责表", markdown)
         self.assertIn("ContextManager", markdown)
+        self.assertIn("/src/mod.rs#L1", markdown)
 
 
 if __name__ == "__main__":

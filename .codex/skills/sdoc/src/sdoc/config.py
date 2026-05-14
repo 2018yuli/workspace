@@ -30,7 +30,7 @@ class SdocConfig:
     supported_extensions: list[str] = field(default_factory=lambda: list(DEFAULT_EXTENSIONS))
     enable_cache: bool = True
     cache_file: str = ".sdoc-cache.json"
-    cache_version: str = "2026-05-13"
+    cache_version: str = "2026-05-13-quality-v3"
     log_level: str = "INFO"
     fail_on_unsupported_language: bool = True
     template_title_suffix: str = "代码架构文档"

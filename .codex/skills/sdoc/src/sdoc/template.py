@@ -29,33 +29,63 @@ def symbol_kind_name(kind: str) -> str:
     return SPECIAL_KIND_NAMES.get(kind, kind)
 
 
-def render_symbol_table(symbols: Sequence[Symbol]) -> str:
+def markdown_escape(text: str) -> str:
+    return text.replace("|", "\\|").replace("\n", " ")
+
+
+def repo_relative_path(path: str, project_root: str) -> str:
+    item = Path(path).resolve()
+    root = Path(project_root).resolve()
+    try:
+        relative = item.relative_to(root)
+    except ValueError:
+        relative = Path(path)
+    return relative.as_posix()
+
+
+def source_link(path: str, line: int, project_root: str, label: str | None = None) -> str:
+    relative = repo_relative_path(path, project_root)
+    href = f"/{relative}#L{line}"
+    text = label or f"{relative}:{line}"
+    return f"[{markdown_escape(text)}]({href})"
+
+
+def symbol_display_name(symbol: Symbol) -> str:
+    if symbol.container and symbol.kind in {"method", "constructor"}:
+        return f"{symbol.container}::{symbol.name}"
+    return symbol.name
+
+
+def render_symbol_table(symbols: Sequence[Symbol], project_root: str) -> str:
     if not symbols:
         return "暂无可展示的关键结构。"
     lines = [
-        "| 名称 | 类型 | 所在文件 | 角色说明 | 初学者阅读提示 |",
+        "| 名称 | 类型 | 源码位置 | 职责说明 | 阅读要点 |",
         "| --- | --- | --- | --- | --- |",
     ]
     for symbol in symbols:
+        location_label = f"{Path(symbol.file_path).name}:{symbol.line_start}"
         lines.append(
-            "| {name} | {kind} | {file}:{line} | {role} | {difficulty} |".format(
-                name=symbol.name.replace("|", "\\|"),
+            "| {name} | {kind} | {location} | {role} | {difficulty} |".format(
+                name=f"`{markdown_escape(symbol_display_name(symbol))}`",
                 kind=symbol_kind_name(symbol.kind),
-                file=Path(symbol.file_path).name.replace("|", "\\|"),
-                line=symbol.line_start,
-                role=(symbol.role_hint or "-").replace("|", "\\|"),
-                difficulty=(symbol.difficulty_hint or "-").replace("|", "\\|"),
+                location=source_link(symbol.file_path, symbol.line_start, project_root, location_label),
+                role=markdown_escape(symbol.role_hint or "-"),
+                difficulty=markdown_escape(symbol.difficulty_hint or "-"),
             )
         )
     return "\n".join(lines)
 
 
-def render_module_edges(edges: Sequence[tuple[str, str]]) -> str:
+def render_module_edges(edges: Sequence[tuple[str, str]], analyzed_files: Sequence[str], project_root: str) -> str:
     if not edges:
         return "当前目录中没有识别出明显的本地模块依赖边。"
+    file_by_name = {Path(path).name: path for path in analyzed_files}
     lines = []
     for left, right in edges[:20]:
-        lines.append(f"- `{left}` → `{right}`")
+        left_label = source_link(file_by_name.get(left, left), 1, project_root, left) if left in file_by_name else f"`{left}`"
+        right_label = source_link(file_by_name.get(right, right), 1, project_root, right) if right in file_by_name else f"`{right}`"
+        lines.append(f"- {left_label} → {right_label}")
     return "\n".join(lines)
 
 
@@ -73,12 +103,18 @@ def render_difficulty_notes(notes: Sequence[DifficultyNote]) -> str:
     return "\n\n".join(paras)
 
 
-def render_snippets(symbols: Sequence[Symbol]) -> str:
+def render_snippets(symbols: Sequence[Symbol], project_root: str) -> str:
     blocks = []
     for symbol in symbols:
+        location = source_link(
+            symbol.file_path,
+            symbol.line_start,
+            project_root,
+            f"{repo_relative_path(symbol.file_path, project_root)}:{symbol.line_start}",
+        )
         blocks.append(
-            f"### `{symbol.name}`\n\n"
-            f"位置：`{Path(symbol.file_path).name}:{symbol.line_start}`\n\n"
+            f"### `{symbol_display_name(symbol)}`\n\n"
+            f"位置：{location}\n\n"
             f"```{snippet_language(symbol.language)}\n{symbol.snippet}\n```"
         )
     return "\n\n".join(blocks) if blocks else "暂无代表性代码片段。"
@@ -104,8 +140,8 @@ def render_markdown(context: TemplateContext) -> str:
         "",
         context.executive_summary,
         "",
-        f"入口文件：`{Path(context.entry_file).as_posix()}`  ",
-        f"目标目录：`{Path(context.target_directory).as_posix()}`  ",
+        f"入口文件：{source_link(context.entry_file, 1, context.project_root, repo_relative_path(context.entry_file, context.project_root))}  ",
+        f"目标目录：`/{repo_relative_path(context.target_directory, context.project_root)}`  ",
         f"涉及语言：{'、'.join(context.languages)}",
         "",
         "## 功能定位与业务说明",
@@ -124,7 +160,7 @@ def render_markdown(context: TemplateContext) -> str:
         [
             "## 关键结构与职责表",
             "",
-            render_symbol_table(context.key_symbols),
+            render_symbol_table(context.key_symbols, context.project_root),
             "",
             "## 主流程",
             "",
@@ -136,7 +172,7 @@ def render_markdown(context: TemplateContext) -> str:
             "",
             "### 模块关系",
             "",
-            render_module_edges(context.module_edges),
+            render_module_edges(context.module_edges, context.analyzed_files, context.project_root),
             "",
             "## 难点类比解释",
             "",
@@ -144,13 +180,13 @@ def render_markdown(context: TemplateContext) -> str:
             "",
             "## 示例代码片段",
             "",
-            render_snippets(context.snippets),
+            render_snippets(context.snippets, context.project_root),
             "",
             "## 生成信息",
             "",
             f"- 生成时间：{context.generated_at}",
             f"- 分析文件数：{len(context.analyzed_files)}",
-            f"- 文件清单：{'、'.join(Path(item).name for item in context.analyzed_files)}",
+            f"- 文件清单：{'、'.join(source_link(item, 1, context.project_root, Path(item).name) for item in context.analyzed_files)}",
         ]
     )
     return "\n".join(lines).strip() + "\n"
@@ -161,6 +197,7 @@ def build_template_context(
     title: str,
     entry_file: str,
     target_directory: str,
+    project_root: str,
     languages: Sequence[str],
     executive_summary: str,
     functional_description: Sequence[str],
@@ -177,6 +214,7 @@ def build_template_context(
         title=title,
         entry_file=entry_file,
         target_directory=target_directory,
+        project_root=project_root,
         languages=list(languages),
         executive_summary=executive_summary,
         functional_description=list(functional_description),

@@ -171,27 +171,58 @@ LANGUAGE_SPECS: Dict[str, LanguageSpec] = {
 
 
 _ROLE_RULES = [
-    (re.compile(r"manager$", re.I), "承担总控与协调职责，像一个总调度台。"),
-    (re.compile(r"service$", re.I), "更像对外提供能力的业务服务层。"),
-    (re.compile(r"controller$", re.I), "更像接收输入并分发动作的入口层。"),
-    (re.compile(r"context", re.I), "负责维护上下文或运行现场，像工作台上的共享白板。"),
-    (re.compile(r"builder$", re.I), "负责按步骤组装结果，像流水线装配工位。"),
-    (re.compile(r"factory$", re.I), "负责统一创建对象，像生产线出厂口。"),
-    (re.compile(r"registry$", re.I), "负责登记与查找映射，像通讯录或索引表。"),
-    (re.compile(r"cache", re.I), "承担缓存与复用职责，目的是减少重复计算。"),
-    (re.compile(r"parser|lexer", re.I), "承担语法拆解或输入解析职责，像把原材料先分门别类。"),
-    (re.compile(r"resolver", re.I), "负责把名字、引用或依赖解析到具体目标。"),
-    (re.compile(r"scheduler|queue", re.I), "负责排队、择时或调度，像任务分发中心。"),
+    (re.compile(r"manager$", re.I), "协调该模块的核心状态与操作边界，通常是上游调用方直接依赖的门面对象。"),
+    (re.compile(r"service$", re.I), "封装一组可复用业务能力，对上提供稳定接口，对下隐藏实现细节。"),
+    (re.compile(r"controller$", re.I), "负责接收外部输入、选择处理路径，并把请求分发给下游组件。"),
+    (re.compile(r"builder$", re.I), "按步骤组装复杂结果，重点关注输入来源、默认值和最终产物。"),
+    (re.compile(r"factory$", re.I), "统一创建对象或实现实例，让调用方不必关心具体构造细节。"),
+    (re.compile(r"registry$", re.I), "维护名称、类型或条件到实现的映射，是运行时查找和扩展的入口。"),
+    (re.compile(r"cache", re.I), "负责缓存可复用结果，核心问题是命中条件、失效时机和一致性。"),
+    (re.compile(r"parser|lexer", re.I), "把原始输入转换为结构化表示，后续逻辑基于解析结果工作。"),
+    (re.compile(r"resolver", re.I), "把名称、路径或引用解析为可操作的具体目标。"),
+    (re.compile(r"scheduler|queue", re.I), "维护任务排队、选择和推进策略，影响执行顺序与吞吐。"),
 ]
 
 
 _DIFFICULTY_RULES = [
     (
+        re.compile(r"ResponseItem|FunctionCallOutput|CustomToolCallOutput|LocalShellCall|call_id", re.I),
+        DifficultyNote(
+            title="历史项配对不变量",
+            explanation="这类代码通常要求“调用项”和“输出项”成对存在，否则模型侧会看到不完整的工具调用历史。",
+            analogy="优先检查插入、删除和回滚路径是否同时维护两端，而不是只看单个 Vec 的增删。",
+        ),
+    ),
+    (
+        re.compile(r"TokenUsage|token|truncate|context_window|approx_token", re.I),
+        DifficultyNote(
+            title="Token 预算是启发式估算",
+            explanation="上下文预算往往结合服务端真实 usage、客户端新增项和字节到 token 的近似换算。",
+            analogy="阅读时要区分“服务端已统计的 token”和“本地为了决策临时估算的 token”。",
+        ),
+    ),
+    (
+        re.compile(r"InputModality|InputImage|image_url|supports_images", re.I),
+        DifficultyNote(
+            title="多模态能力降级",
+            explanation="当目标模型不支持某类输入时，历史仍要保持结构完整，但对应内容需要替换或省略。",
+            analogy="重点确认替换后是否仍保留用户/工具输出的语义位置，以及是否避免把不可用内容发给模型。",
+        ),
+    ),
+    (
+        re.compile(r"TurnContextItem|previous|next|diff|model_switch|personality|sandbox", re.I),
+        DifficultyNote(
+            title="上下文差量更新",
+            explanation="上下文更新代码通常只在 previous 与 next 存在差异时生成新指令，避免重复注入相同信息。",
+            analogy="阅读时要沿着每个 early return 看清楚：哪些变化会发给模型，哪些变化会被静默跳过。",
+        ),
+    ),
+    (
         re.compile(r"async|await|tokio|futures|goroutine|channel|thread", re.I),
         DifficultyNote(
             title="并发/异步流程",
             explanation="代码可能不是按单线程直线往下跑，而是把等待 I/O 或耗时操作拆出去并行推进。",
-            analogy="可以把它想成餐厅里同时处理点单、后厨出餐、叫号取餐，顾客看到的是一个流程，内部其实是多个环节协同。",
+            analogy="阅读时先区分发起者、等待点和结果汇总点，再回头看错误传播路径。",
         ),
     ),
     (
@@ -199,7 +230,7 @@ _DIFFICULTY_RULES = [
         DifficultyNote(
             title="缓存与复用",
             explanation="这类代码会优先复用已算过的数据，以减少重复昂贵操作。",
-            analogy="就像图书馆先查索引卡片，找到馆藏位置再取书，而不是每次都从头翻遍整馆。",
+            analogy="重点确认缓存键、命中条件、失效条件，以及缓存内容是否会跨上下文污染。",
         ),
     ),
     (
@@ -207,7 +238,7 @@ _DIFFICULTY_RULES = [
         DifficultyNote(
             title="抽象层与泛型",
             explanation="代码强调“约定优先”，先定义一套接口或能力，再让不同实现去接入。",
-            analogy="可以把它理解成插座标准：先规定插头接口，具体接电风扇还是电饭煲并不重要。",
+            analogy="阅读时先看 trait/interface 的契约，再看具体实现如何满足这些约束。",
         ),
     ),
     (
@@ -215,7 +246,7 @@ _DIFFICULTY_RULES = [
         DifficultyNote(
             title="状态流转",
             explanation="逻辑不是一次完成，而是在多个状态之间逐步推进，每一步可走的分支不同。",
-            analogy="像订单从“待支付、待发货、运输中、已签收”逐步流转，每个阶段允许的动作都不同。",
+            analogy="建议列出状态字段、触发条件和每条路径对状态的修改结果。",
         ),
     ),
     (
@@ -223,7 +254,7 @@ _DIFFICULTY_RULES = [
         DifficultyNote(
             title="上下文传递",
             explanation="部分信息不会直接写死在函数里，而是通过上下文对象逐层传递。",
-            analogy="像会议中共享的白板，后续所有参与者都从这块白板读取当前背景信息。",
+            analogy="重点确认上下文的来源、生命周期，以及哪些字段会进入模型可见历史。",
         ),
     ),
     (
@@ -231,7 +262,7 @@ _DIFFICULTY_RULES = [
         DifficultyNote(
             title="语法树与解析过程",
             explanation="代码在处理文本时，通常会先把文本拆成结构化节点，再基于这些节点做判断。",
-            analogy="像先把一段文章拆成标题、段落、句子和词，再去理解整篇文章，而不是直接在原文上乱抓关键字。",
+            analogy="阅读时把解析阶段、节点筛选阶段和语义转换阶段分开看。",
         ),
     ),
 ]
@@ -413,22 +444,152 @@ def extract_python_docstring(node: Any, text: str) -> str:
     return ""
 
 
-def summarize_symbol_role(symbol: Symbol) -> str:
-    lowered = symbol.name.lower()
-    for pattern, message in _ROLE_RULES:
-        if pattern.search(lowered):
-            return message
-    if symbol.kind in {"class", "struct", "interface", "trait", "record"}:
-        return "更像承载核心状态与行为边界的主体对象。"
-    if symbol.kind in {"function", "method", "constructor"}:
-        return "更像流程中的一个动作节点，负责完成某一步操作。"
-    if symbol.kind in {"enum", "type_alias"}:
-        return "主要用于约束取值范围或统一表达语义。"
-    return "承担局部职责，建议结合调用关系一起理解。"
+def assign_symbol_containers(symbols: Sequence[Symbol]) -> None:
+    containers = [
+        symbol
+        for symbol in symbols
+        if symbol.kind in {"class", "struct", "interface", "trait", "record", "impl", "trait_impl"}
+    ]
+    for symbol in symbols:
+        if symbol.kind not in {"function", "method", "constructor"}:
+            continue
+        candidates = [
+            container
+            for container in containers
+            if container is not symbol
+            and container.line_start <= symbol.line_start
+            and symbol.line_end <= container.line_end
+        ]
+        if not candidates:
+            continue
+        container = min(candidates, key=lambda item: item.line_end - item.line_start)
+        symbol.container = clean_container_name(container.name)
+        if container.kind in {"impl", "trait_impl", "trait", "class", "interface"}:
+            symbol.kind = "method"
 
 
-def summarize_symbol_difficulty(symbol: Symbol) -> str:
+def clean_container_name(name: str) -> str:
+    name = compact(name)
+    name = re.sub(r"^impl\s+", "", name)
+    name = re.sub(r"\s*\{.*$", "", name)
+    if " for " in name:
+        name = name.split(" for ", 1)[1]
+    return name.strip() or name
+
+
+def display_symbol_name(symbol: Symbol) -> str:
+    if symbol.container and symbol.kind in {"method", "constructor"}:
+        return f"{symbol.container}::{symbol.name}"
+    return symbol.name
+
+
+def extract_field_summaries(symbol: Symbol, limit: int = 5) -> list[str]:
+    fields: list[str] = []
+    for match in re.finditer(
+        r"^\s*(?:pub(?:\([^)]*\))?\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*:\s*([^,\n]+)",
+        symbol.body_text,
+        flags=re.M,
+    ):
+        name = match.group(1)
+        type_name = compact(match.group(2))
+        fields.append(f"`{name}: {type_name}`")
+        if len(fields) >= limit:
+            break
+    return fields
+
+
+def extract_state_fields(symbol: Symbol, limit: int = 6) -> list[str]:
+    fields: list[str] = []
+    for match in re.finditer(r"\bself\.([A-Za-z_][A-Za-z0-9_]*)", symbol.body_text):
+        suffix = symbol.body_text[match.end():]
+        if re.match(r"\s*\(", suffix):
+            continue
+        field = match.group(1)
+        if field not in fields:
+            fields.append(field)
+        if len(fields) >= limit:
+            break
+    return fields
+
+
+def extract_mutated_fields(symbol: Symbol, limit: int = 6) -> list[str]:
+    mutated: list[str] = []
+    mutation_patterns = (
+        r"\bself\.([A-Za-z_][A-Za-z0-9_]*)\s*=",
+        r"\bself\.([A-Za-z_][A-Za-z0-9_]*)\.(?:push|pop|retain|remove|insert|extend|clear|truncate|sort|drain)\s*\(",
+    )
+    for pattern in mutation_patterns:
+        for match in re.finditer(pattern, symbol.body_text):
+            field = match.group(1)
+            if field not in mutated:
+                mutated.append(field)
+            if len(mutated) >= limit:
+                return mutated
+    return mutated
+
+
+def format_identifier_list(items: Sequence[str], limit: int = 4) -> str:
+    picked = [f"`{item}`" for item in items[:limit] if item]
+    return "、".join(picked)
+
+
+def infer_accessor_field(symbol: Symbol) -> str | None:
+    direct_names = extract_state_fields(symbol, limit=2)
+    if len(direct_names) == 1:
+        return direct_names[0]
+    for prefix in ("set_", "get_", "update_", "read_"):
+        if symbol.name.startswith(prefix):
+            return symbol.name.removeprefix(prefix)
+    return None
+
+
+def is_simple_accessor(symbol: Symbol) -> bool:
+    body = compact(symbol.body_text)
+    if not body:
+        return False
+    if re.search(r"\bself\.[A-Za-z_][A-Za-z0-9_]*\.clone\(\)", body):
+        return True
+    if re.fullmatch(r"\{?\s*&?self\.[A-Za-z_][A-Za-z0-9_]*\s*\}?", body):
+        return True
+    return False
+
+
+def infer_method_role_from_structure(symbol: Symbol) -> str | None:
+    mutated_fields = extract_mutated_fields(symbol)
+    state_fields = extract_state_fields(symbol)
+    called = symbol.calls[:3]
+    name = symbol.name.lower()
+
+    if symbol.kind not in {"function", "method", "constructor"}:
+        return None
+    if symbol.kind == "constructor" or name == "new":
+        if state_fields:
+            return f"初始化 {format_identifier_list(state_fields)} 等内部状态，建立 `{symbol.container or symbol.name}` 的可用初始值。"
+        return "构造并返回一个可直接投入后续流程使用的初始对象。"
+    accessor_field = infer_accessor_field(symbol)
+    if accessor_field and symbol.name.startswith("get_"):
+        return f"读取 `{accessor_field}` 状态，对外提供该字段的受控访问入口。"
+    if is_simple_accessor(symbol) and accessor_field:
+        return f"暴露 `{accessor_field}` 的只读访问，避免上层直接依赖内部字段布局。"
+    if mutated_fields and called:
+        return f"围绕 {format_identifier_list(mutated_fields)} 等状态推进当前步骤，并把具体处理下沉到 {format_identifier_list(called)}。"
+    if mutated_fields:
+        return f"直接修改 {format_identifier_list(mutated_fields)} 等内部状态，是当前对象状态流转中的一个写入点。"
+    if called and state_fields:
+        return f"基于 {format_identifier_list(state_fields)} 等上下文编排后续处理，核心动作委托给 {format_identifier_list(called)}。"
+    if called:
+        return f"作为局部编排节点，按顺序调用 {format_identifier_list(called)} 等辅助逻辑完成本步骤。"
+    if state_fields:
+        return f"围绕 {format_identifier_list(state_fields)} 等内部状态完成一次局部读写或判断。"
+    return None
+
+
+def infer_reading_hint_from_structure(symbol: Symbol) -> str | None:
     body = f"{symbol.signature} {symbol.body_text}"
+    state_fields = extract_state_fields(symbol)
+    mutated_fields = extract_mutated_fields(symbol)
+    called = symbol.calls[:3]
+
     if re.search(r"async|await|tokio|goroutine|channel|thread", body, re.I):
         return "涉及异步或并发，阅读时要分清谁负责发起、等待、汇总。"
     if re.search(r"cache|memo|lru", body, re.I):
@@ -436,8 +597,174 @@ def summarize_symbol_difficulty(symbol: Symbol) -> str:
     if re.search(r"trait|interface|impl|generic|<T|where ", body, re.I):
         return "抽象层较多，建议先看接口，再看具体实现。"
     if re.search(r"unsafe|unwrap\(|panic\(|expect\(|Result<|Option<", body, re.I):
-        return "包含错误边界或风险点，建议先看出错路径。"
-    return "整体不算绕，但第一次读时最好先抓输入、输出和状态变化。"
+        details = ["包含错误边界或风险点，建议先看出错路径"]
+        if called:
+            details.append(f"再顺着 {format_identifier_list(called)} 看异常如何传播")
+        return "；".join(details) + "。"
+    if symbol.name.startswith("set_") and mutated_fields:
+        return f"这是直接状态写入点，重点看 {format_identifier_list(mutated_fields)} 在哪些回合边界被更新。"
+    if is_simple_accessor(symbol) and state_fields:
+        return f"这是轻量访问器，重点看 {format_identifier_list(state_fields)} 的来源以及谁依赖这个读取结果。"
+    notes: list[str] = []
+    if mutated_fields:
+        notes.append(f"先确认它会改动哪些状态：{format_identifier_list(mutated_fields)}")
+    elif state_fields:
+        notes.append(f"先确认它依赖哪些状态：{format_identifier_list(state_fields)}")
+    if called:
+        notes.append(f"再顺着调用链继续看：{format_identifier_list(called)}")
+    if notes:
+        return "；".join(notes) + "。"
+    return None
+
+
+def normalize_technical_terms(text: str) -> str:
+    replacements = {
+        "ResponseItem": "模型交互历史项",
+        "TokenUsageInfo": "token 使用统计",
+        "TokenUsage": "token 使用量",
+        "TurnContextItem": "回合上下文快照",
+        "InputModality": "模型输入模态",
+        "FunctionCallOutput": "函数调用输出",
+        "CustomToolCallOutput": "自定义工具调用输出",
+        "DeveloperInstructions": "开发者指令",
+        "EnvironmentContext": "运行环境上下文",
+    }
+    result = text
+    for raw, friendly in replacements.items():
+        result = result.replace(raw, friendly)
+    return result
+
+
+def role_from_exact_name(symbol: Symbol) -> Optional[str]:
+    body = f"{symbol.signature}\n{symbol.body_text}"
+    exact_roles = {
+        "ContextManager": "维护按时间排序的模型交互历史、token 使用统计和上下文基线，是发送模型前整理 prompt 历史的核心状态对象。",
+        "TotalTokenUsageBreakdown": "承载 token 统计拆解结果，把服务端已报告 token、历史可见字节数和最近新增项的估算成本分开暴露，方便上层做预算判断。",
+        "record_items": "接收按时间顺序到来的历史项，只保留 API 相关项和 ghost snapshot，并在入库前按截断策略压缩工具输出。",
+        "for_prompt": "生成即将发送给模型的历史列表：先执行历史归一化，再移除 ghost snapshot，最终返回模型可见的 `ResponseItem` 序列。",
+        "raw_items": "提供未归一化的历史只读视图，供调用方检查当前内存中的原始 `ResponseItem`。",
+        "estimate_token_count": "结合当前回合的模型基础指令与历史项估算 token 总量，用于上下文窗口预算判断。",
+        "estimate_token_count_with_base_instructions": "把基础指令 token 与每个历史项的估算 token 饱和相加，形成粗粒度预算结果。",
+        "remove_first_item": "删除最老历史项，并同步删除与其配对的调用或输出，避免破坏工具调用配对不变量。",
+        "remove_last_item": "弹出最新历史项并清理其配对项，用于回滚末尾历史同时保持调用/输出成对。",
+        "replace": "整体替换内存历史列表，通常用于回滚或外部重新整理后的状态覆盖。",
+        "replace_last_turn_images": "在最近一轮中把工具输出图片替换为占位文本，用于在不重新生成整段历史的情况下移除图片负载。",
+        "drop_last_n_user_turns": "按用户消息边界回滚最近 N 个用户回合，并保留第一条用户消息之前的系统或初始化历史。",
+        "update_token_info": "把最新 API token usage 合并进累计统计，并根据模型上下文窗口维护 token 信息。",
+        "get_non_last_reasoning_items_tokens": "估算最后一个用户消息之前的加密 reasoning 项 token，避免与服务端最近 usage 统计混淆。",
+        "items_after_last_model_generated_item": "定位最近一次模型生成项之后的本地新增历史片段，这些项通常尚未反映在服务端 usage 中。",
+        "get_total_token_usage": "合并服务端 usage、本地新增项估算和可选 reasoning 估算，得到当前历史的总 token 成本。",
+        "get_total_token_usage_breakdown": "输出 token 成本拆解，区分服务端最近响应、全历史可见字节和最近新增项的估算 token/字节。",
+        "normalize_history": "集中维护 prompt 历史不变量：补齐调用输出、移除孤儿输出，并按模型输入能力替换图片内容。",
+        "process_item": "入库前处理单个历史项；对工具输出应用序列化预算截断，其他模型交互项保持原样克隆。",
+        "is_api_message": "判定历史项是否属于应记录的 API 消息，排除 system、ghost snapshot 和未知项。",
+        "estimate_reasoning_length": "用 base64 长度近似推导 reasoning 明文长度，并扣除固定封装开销。",
+        "estimate_item_token_count": "把单个历史项的模型可见字节数转换为近似 token 数。",
+        "estimate_response_item_model_visible_bytes": "估算单个 `ResponseItem` 对模型可见的序列化字节成本，并对加密 reasoning 与内联图片做专门折算。",
+        "base64_data_url_payload_len": "识别 `data:image/...;base64,...` 形式的内联图片，并返回可折算的 base64 payload 长度。",
+        "image_data_url_estimate_adjustment": "扫描消息和工具输出中的内联图片，计算需要从原始序列化大小中扣除并替换为固定图片成本的字节数。",
+        "is_model_generated_item": "识别由模型侧产生的历史项，作为 usage 断点和本地新增项切分依据。",
+        "is_codex_generated_item": "判断历史项是否由 Codex/模型生成，用于区分用户边界和助手侧事件。",
+        "is_user_turn_boundary": "识别用户回合边界，支撑回滚、截断和上下文整理逻辑。",
+        "user_message_positions": "收集历史中所有用户消息的位置，为按用户回合回滚提供切分索引。",
+        "ensure_call_outputs_present": "扫描历史中的函数、自定义工具和本地 shell 调用，确保每个调用都有对应输出占位，维持 OpenAI 输入协议不变量。",
+        "remove_orphan_outputs": "删除找不到对应调用项的输出，并在发现孤儿输出时记录错误或触发测试期 panic。",
+        "remove_corresponding_for": "当调用项或输出项被删除时，顺带移除另一端配对项，避免历史中留下半截工具调用。",
+        "strip_images_when_unsupported": "当模型不支持图片输入时，把消息和工具输出中的图片内容替换为固定占位文本，同时保留历史结构。",
+        "build_settings_update_items": "比较上一轮和下一轮上下文，按固定顺序生成模型指令、环境、权限、协作模式和人格等差量更新项。",
+        "build_model_instructions_update_item": "模型发生切换时生成新的模型指令注入项，确保下一个模型收到匹配的基础行为说明。",
+        "personality_message_for": "从模型消息配置中查找指定 personality 的指令文本，并过滤空消息。",
+    }
+    if symbol.name in exact_roles:
+        return exact_roles[symbol.name]
+    if re.match(r"^set_[A-Za-z0-9_]+$", symbol.name):
+        field = symbol.name.removeprefix("set_")
+        return f"更新 `{field}` 状态字段，是 `{symbol.container or '当前对象'}` 对外暴露的显式状态写入入口。"
+    if re.match(r"^[A-Za-z0-9_]+$", symbol.name) and symbol.container and re.search(r"clone\(\)|&self\.[A-Za-z_]", body):
+        return f"读取 `{symbol.name}` 相关状态，避免调用方直接访问 `{symbol.container}` 的内部字段。"
+    return None
+
+
+def role_from_patterns(symbol: Symbol) -> Optional[str]:
+    name = symbol.name.lower()
+    body = f"{symbol.signature}\n{symbol.body_text}"
+    lowered_body = body.lower()
+    mutated_fields = extract_mutated_fields(symbol)
+    state_fields = extract_state_fields(symbol)
+    called = symbol.calls[:3]
+    if symbol.kind in {"class", "struct", "interface", "trait", "record"}:
+        fields = extract_field_summaries(symbol)
+        if fields:
+            field_text = "、".join(fields)
+            if "responseitem" in lowered_body or "token" in lowered_body or "context" in lowered_body:
+                return f"封装 {field_text} 等关键状态，把历史记录、预算统计和上下文快照集中在一个边界内管理。"
+            return f"封装 {field_text} 等字段，定义该模块内部状态和行为的主要边界。"
+    if symbol.kind in {"function", "method", "constructor"}:
+        if name.startswith("build_") and "update" in name:
+            detail = ""
+            if called:
+                detail = f"，并继续调用 {format_identifier_list(called)} 组织具体更新项"
+            return f"根据前后上下文差异构造可注入模型历史的更新项，只有检测到真实变化时才返回结果{detail}。"
+        if "normalize" in name or "orphan" in name or "corresponding" in name:
+            detail = f"；重点看 {format_identifier_list(called)} 如何修复配对关系" if called else ""
+            return f"维护历史列表的不变量，重点处理调用项、输出项和模型能力不匹配造成的结构问题{detail}。"
+        if "token" in name or "usage" in name:
+            detail = f"；关注它读写的状态：{format_identifier_list(state_fields)}" if state_fields else ""
+            return f"负责 token/字节成本估算或统计合并，是上下文窗口预算相关逻辑的一部分{detail}。"
+        if "image" in name or "modality" in lowered_body:
+            detail = f"；主要作用在 {format_identifier_list(mutated_fields or state_fields)}" if (mutated_fields or state_fields) else ""
+            return f"处理图片内容与模型输入能力之间的兼容问题，避免不支持图片的模型收到原始图片负载{detail}。"
+        if "remove" in name or "drop" in name or "rollback" in name:
+            detail = f"；通常会直接改动 {format_identifier_list(mutated_fields)}" if mutated_fields else ""
+            return f"负责删除或回滚历史片段，同时需要保持调用/输出配对和用户回合边界的正确性{detail}。"
+        if "record" in name or "append" in name or "push" in lowered_body:
+            details = []
+            if mutated_fields:
+                details.append(f"写入 {format_identifier_list(mutated_fields)}")
+            if called:
+                details.append(f"下沉到 {format_identifier_list(called)} 做具体处理")
+            suffix = f"；{'，'.join(details)}" if details else ""
+            return f"负责把新输入纳入内部状态，并在写入前做过滤、归一化或预算处理{suffix}。"
+        if "retain" in lowered_body or "filter" in lowered_body:
+            detail = f"；筛选目标集中在 {format_identifier_list(mutated_fields or state_fields)}" if (mutated_fields or state_fields) else ""
+            return f"负责筛选集合内容，只保留后续流程真正需要且满足协议约束的元素{detail}。"
+        if "match" in lowered_body and "responseitem" in lowered_body:
+            return "按 `ResponseItem` 变体分派处理逻辑，是理解该模块行为分支的关键位置。"
+    return None
+
+
+def summarize_symbol_role(symbol: Symbol) -> str:
+    exact = role_from_exact_name(symbol)
+    if exact:
+        return exact
+    patterned = role_from_patterns(symbol)
+    if patterned:
+        return patterned
+    inferred = infer_method_role_from_structure(symbol)
+    if inferred:
+        return inferred
+    lowered = symbol.name.lower()
+    for pattern, message in _ROLE_RULES:
+        if pattern.search(lowered):
+            return message
+    if symbol.doc:
+        return normalize_technical_terms(f"围绕注释所描述的能力提供实现：{symbol.doc}。")
+    if symbol.kind in {"class", "struct", "interface", "trait", "record"}:
+        return "定义该模块的核心数据边界，建议结合字段列表和关联方法一起理解。"
+    if symbol.kind in {"function", "method", "constructor"}:
+        return "承担一个明确处理步骤，建议从输入参数、返回值和对共享状态的修改三处阅读。"
+    if symbol.kind in {"enum", "type_alias"}:
+        return "约束一组取值或统一复杂类型表达，帮助上层逻辑减少重复类型细节。"
+    if symbol.kind == "module":
+        return "声明或组织子模块，是当前目录对外暴露结构的一部分。"
+    return "承担局部职责，建议结合调用关系和相邻定义一起理解。"
+
+
+def summarize_symbol_difficulty(symbol: Symbol) -> str:
+    inferred = infer_reading_hint_from_structure(symbol)
+    if inferred:
+        return inferred
+    return "先抓输入、输出与状态变化，再决定是否需要展开相邻调用点。"
 
 
 def import_targets_from_text(source_text: str, spec: LanguageSpec) -> list[str]:
@@ -495,16 +822,18 @@ def analyze_parse_task(task: ParseTask) -> FileAnalysis:
                 doc=doc,
                 body_text=body_text,
             )
-            symbol.role_hint = summarize_symbol_role(symbol)
-            symbol.difficulty_hint = summarize_symbol_difficulty(symbol)
-            symbol.score = score_symbol(symbol, task.path.name)
             symbols.append(symbol)
             break
+    assign_symbol_containers(symbols)
     local_function_names = {s.name for s in symbols if s.kind in {"function", "method", "constructor"}}
     for symbol in symbols:
         if symbol.kind not in {"function", "method", "constructor"}:
             continue
         symbol.calls = sorted(find_local_calls(symbol.body_text, local_function_names, symbol.name))
+    for symbol in symbols:
+        symbol.role_hint = summarize_symbol_role(symbol)
+        symbol.difficulty_hint = summarize_symbol_difficulty(symbol)
+        symbol.score = score_symbol(symbol, task.path.name)
     return FileAnalysis(
         file_path=task.path.as_posix(),
         language=task.language,
@@ -521,13 +850,22 @@ def derive_file_hints(path: Path, comments: Sequence[str], symbols: Sequence[Sym
     hints: list[str] = []
     if comments:
         hints.extend(comments[:3])
+    file_name = path.name
+    symbol_names = {symbol.name for symbol in symbols}
+    joined = "\n".join(symbol.signature + "\n" + symbol.body_text for symbol in symbols)
+    if file_name == "history.rs" and ({"ContextManager", "ResponseItem"} & symbol_names or "ResponseItem" in joined):
+        hints.append("该文件负责维护 Codex 会话历史、模型可见 prompt 项、token 预算估算和历史归一化入口。")
+    elif file_name == "normalize.rs" or "ensure_call_outputs_present" in symbol_names:
+        hints.append("该文件集中维护工具调用与输出的配对不变量，并处理模型不支持图片时的历史降级。")
+    elif file_name == "updates.rs" or "build_settings_update_items" in symbol_names:
+        hints.append("该文件根据 TurnContext 的前后差异生成模型可见的设置更新项，避免重复注入未变化上下文。")
+    elif file_name == "mod.rs":
+        hints.append("这是 Rust 模块入口，负责声明子模块并重新导出 context_manager 对外 API。")
     important_kinds = [s.kind for s in symbols if s.is_public][:5]
     if important_kinds:
         kind_counter = Counter(important_kinds)
         kinds = "、".join(kind for kind, _ in kind_counter.most_common(3))
         hints.append(f"该文件公开暴露的核心对象主要集中在：{kinds}。")
-    if path.name == "mod.rs":
-        hints.append("这是 Rust 模块入口文件，通常承担“对外组织模块、对内协调实现”的角色。")
     return dedupe_preserve_order(hints)
 
 
@@ -616,18 +954,61 @@ def infer_executive_summary(entry_file: Path, analyses: Sequence[FileAnalysis], 
     business_concepts = infer_business_concepts(all_text, core_symbols)
 
     language_names = "、".join(dedupe_preserve_order([analysis.language for analysis in analyses]))
-    symbol_names = "、".join(symbol.name for symbol in core_symbols[:4])
+    symbol_names = "、".join(display_symbol_name(symbol) for symbol in core_symbols[:4])
+    module_focus = infer_module_focus(entry_file, analyses, keywords)
+    primary_files = "、".join(Path(analysis.file_path).name for analysis in analyses[:5])
     summary = (
-        f"该实现会以 {entry_file.name} 为入口，递归分析其所在目录内的源码文件，优先通过抽象语法树提取核心结构，再结合注释、命名、导入关系和局部调用链生成面向初学者的 Markdown 架构说明。"
-        f" 本次分析覆盖的源码语言包括 {language_names}，输出会自动落在目标目录，并附带执行摘要、关键结构表、主流程 mermaid 图、难点类比说明和代表性代码片段。"
+        f"`{entry_file.name}` 所在目录主要负责{module_focus}。"
+        f"本次分析覆盖 {len(analyses)} 个 {language_names} 文件（{primary_files}），核心阅读对象包括 {symbol_names or '入口文件中的公开结构与主函数'}。"
     )
-    details = [
-        f"从当前代码特征看，这个目录的关注点主要围绕：{'、'.join(keywords[:6]) or '模块组织、核心结构、关键流程'}。",
-        f"最值得先读的对象通常是：{symbol_names or '入口文件中的公开结构与主函数'}。",
-        "生成策略会优先相信显式注释和类型声明，其次才根据命名和调用关系做推断，以降低“看名字猜功能”带来的误判。",
-        "如果遇到当前未支持的语言扩展名，工具会立即给出明确报错，不会静默跳过入口文件。",
-    ][: cfg.summary_sentence_limit]
+    details = infer_functional_details(entry_file, analyses, core_symbols, keywords)
+    details = details[: cfg.summary_sentence_limit]
     return summary, details, business_concepts
+
+
+def infer_module_focus(entry_file: Path, analyses: Sequence[FileAnalysis], keywords: Sequence[str]) -> str:
+    names = {Path(analysis.file_path).name for analysis in analyses}
+    all_text = "\n".join(
+        [analysis.file_path for analysis in analyses]
+        + [hint for analysis in analyses for hint in analysis.file_summary_hints]
+        + [symbol.name + "\n" + symbol.signature + "\n" + symbol.body_text[:1200] for analysis in analyses for symbol in analysis.symbols]
+    )
+    lowered = all_text.lower()
+    if "history.rs" in names and "normalize.rs" in names and "responseitem" in lowered:
+        return "Codex 对话历史的记录、裁剪、归一化、模型可见内容构造，以及 token 使用量估算"
+    if "updates.rs" in names and "turncontext" in lowered:
+        return "根据运行上下文变化生成模型可见设置更新，控制模型指令、环境、权限和人格差量注入"
+    if entry_file.name == "mod.rs":
+        return "组织当前 Rust 模块的子模块声明与对外重导出，形成上层调用方看到的 context_manager API"
+    return "、".join(keywords[:4]) or "当前目录的核心数据结构、处理流程和对外接口"
+
+
+def infer_functional_details(
+    entry_file: Path,
+    analyses: Sequence[FileAnalysis],
+    core_symbols: Sequence[Symbol],
+    keywords: Sequence[str],
+) -> list[str]:
+    all_symbols = [symbol for analysis in analyses for symbol in analysis.symbols]
+    names = {symbol.name for symbol in all_symbols}
+    details: list[str] = []
+    if "ContextManager" in names:
+        details.append("`ContextManager` 是历史状态门面：它持有按时间排序的 `ResponseItem`、token 统计和参考上下文快照，并负责把原始历史整理成可发送给模型的 prompt 历史。")
+    if {"ensure_call_outputs_present", "remove_orphan_outputs", "strip_images_when_unsupported"} & names:
+        details.append("`normalize` 模块维护历史协议不变量：工具调用必须有输出、输出必须能找到调用；当模型不支持图片时，图片内容会被替换为占位文本而不是破坏消息结构。")
+    if {"estimate_response_item_model_visible_bytes", "get_total_token_usage", "get_total_token_usage_breakdown"} & names:
+        details.append("token 预算逻辑同时处理服务端已返回 usage、本地新增历史项、加密 reasoning 和内联图片的启发式成本，适合先按“真实统计 vs 本地估算”两条线阅读。")
+    if "build_settings_update_items" in names:
+        details.append("`updates` 模块按固定顺序生成上下文差量更新，优先注入模型切换指令，再处理环境、权限、协作模式和 personality 变化。")
+    if entry_file.name == "mod.rs":
+        exported = [symbol for symbol in all_symbols if symbol.file_path == entry_file.as_posix()]
+        if exported:
+            details.append("模块入口的价值在于收敛 API：上层通过这里拿到 `ContextManager`、token breakdown 和历史边界判断函数，而不必关心子文件拆分。")
+    if core_symbols:
+        details.append(f"建议阅读顺序：先看 {'、'.join(display_symbol_name(symbol) for symbol in core_symbols[:5])}，再沿职责表中的源码链接跳到具体实现。")
+    if not details:
+        details.append(f"从当前代码特征看，这个目录的关注点主要围绕：{'、'.join(keywords[:6]) or '模块组织、核心结构、关键流程'}。")
+    return details
 
 
 def infer_keywords(text: str) -> list[str]:
@@ -673,6 +1054,16 @@ def infer_keywords(text: str) -> list[str]:
 def infer_business_concepts(text: str, symbols: Sequence[Symbol]) -> list[str]:
     results: list[str] = []
     body = text.lower() + " " + " ".join(symbol.name.lower() for symbol in symbols)
+    if re.search(r"responseitem|conversation|history|transcript|prompt", body):
+        results.append("**历史项 / ResponseItem**：一次对话中模型、用户、工具调用和工具输出的结构化记录；发送给模型前必须保持顺序和协议不变量。")
+    if re.search(r"call_id|functioncall|customtoolcall|orphan|corresponding", body):
+        results.append("**调用 / 输出配对**：工具调用和工具输出依靠 `call_id` 成对出现；删除、回滚或归一化时必须同时维护两端。")
+    if re.search(r"token|context_window|truncate|usage|visible_bytes", body):
+        results.append("**Token 预算**：结合服务端 usage 与本地启发式估算，判断历史是否接近模型上下文窗口。")
+    if re.search(r"modality|inputimage|image_url|image", body):
+        results.append("**输入模态降级**：当模型不支持图片等输入类型时，用占位文本保留历史位置，同时避免发送不可处理内容。")
+    if re.search(r"turncontext|environmentcontext|sandbox|approval|personality", body):
+        results.append("**上下文差量更新**：比较上一轮和下一轮运行上下文，只把变化部分作为开发者指令重新注入模型历史。")
     if re.search(r"context", body):
         results.append("**上下文**：可以理解为流程运行时共享的一组背景信息，例如当前配置、会话状态、依赖对象或已收集的数据。")
     if re.search(r"resolver|resolve", body):
@@ -714,6 +1105,31 @@ def collect_difficulty_notes(analyses: Sequence[FileAnalysis], limit: int) -> li
 
 def build_flow_steps(entry_file: Path, analyses: Sequence[FileAnalysis]) -> list[FlowStep]:
     symbols = [symbol for analysis in analyses for symbol in analysis.symbols]
+    symbol_names = {symbol.name for symbol in symbols}
+    if "ContextManager" in symbol_names:
+        steps = [
+            FlowStep("记录历史项", "`ContextManager::record_items` 按时间顺序接收新历史，只保留 API 相关消息和 ghost snapshot，并通过 `process_item` 截断大型工具输出。"),
+            FlowStep("维护历史窗口", "删除、回滚和替换路径会调用 `normalize::remove_corresponding_for`，保证函数/工具调用与输出不会只剩一端。"),
+            FlowStep("准备模型输入", "`ContextManager::for_prompt` 在返回历史前执行 `normalize_history`，补齐缺失输出、移除孤儿输出，并按模型模态能力处理图片。"),
+            FlowStep("估算上下文成本", "`estimate_token_count` 与 `get_total_token_usage*` 把基础指令、历史项、reasoning 和图片折算为预算信息。"),
+            FlowStep("暴露边界判断", "`is_codex_generated_item`、`is_user_turn_boundary` 等辅助函数供回滚、压缩和上层线程管理逻辑识别历史边界。"),
+        ]
+        return steps[:6]
+    if "build_settings_update_items" in symbol_names:
+        return [
+            FlowStep("接收上下文快照", "入口接收 previous、previous_user_turn_model 和 next `TurnContext`，同时拿到 shell、执行策略和 personality feature 开关。"),
+            FlowStep("优先处理模型切换", "模型切换指令排在最前，确保新模型先读到匹配自身的基础行为说明。"),
+            FlowStep("生成环境与权限差量", "环境、sandbox、approval policy 等只有发生变化时才转成新的 `DeveloperInstructions`。"),
+            FlowStep("补充协作模式与人格", "协作模式和 personality 更新在后续追加，且空指令或未启用 feature 会被跳过。"),
+            FlowStep("返回有序更新项", "最终返回可插入历史的 `ResponseItem` 列表，上游负责把这些差量送入模型上下文。"),
+        ]
+    if {"ensure_call_outputs_present", "remove_orphan_outputs", "strip_images_when_unsupported"} & symbol_names:
+        return [
+            FlowStep("扫描调用项", "先收集函数调用、自定义工具调用和本地 shell 调用的 `call_id`，确认哪些调用需要输出。"),
+            FlowStep("补齐缺失输出", "对没有输出的调用追加失败占位输出，避免模型收到不完整工具调用链。"),
+            FlowStep("移除孤儿输出", "再反向检查输出是否能找到对应调用，找不到就记录错误并从历史中移除。"),
+            FlowStep("按能力降级内容", "当模型不支持图片输入时，把消息和工具输出中的图片替换为统一占位文本。"),
+        ]
     call_map = {symbol.name: symbol.calls for symbol in symbols if symbol.kind in {"function", "method", "constructor"}}
     entry_candidates = sorted(
         [
@@ -738,7 +1154,8 @@ def build_flow_steps(entry_file: Path, analyses: Sequence[FileAnalysis]) -> list
             FlowStep("补全模块关系", "再结合导入关系和相邻文件，理解这个目录如何被组织起来。"),
         ]
     entry = entry_candidates[0]
-    steps = [FlowStep("接收输入或建立上下文", f"流程通常会先进入 `{entry.name}`，它像这个目录的前台入口。")]
+    entry_display = display_symbol_name(entry)
+    steps = [FlowStep("进入核心处理", f"流程通常从 `{entry_display}` 开始；该节点的职责是：{entry.role_hint}")]
     current_name = entry.name
     visited = {current_name}
     for _ in range(4):
@@ -756,7 +1173,7 @@ def build_flow_steps(entry_file: Path, analyses: Sequence[FileAnalysis]) -> list
                 )
             )
         current_name = next_name
-    steps.append(FlowStep("汇总结果或向外输出", "最后由入口层或其上游调用方拿到已整理好的结构化结果，并写出 Markdown 文档。"))
+    steps.append(FlowStep("交还上游", "处理完成后返回结构化结果或已更新的内部状态，由上游继续发送模型、回滚历史或展示统计信息。"))
     return steps[:6]
 
 

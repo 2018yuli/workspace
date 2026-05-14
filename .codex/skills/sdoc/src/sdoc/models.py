@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, fields
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -14,6 +14,7 @@ class Symbol:
     line_start: int
     line_end: int
     signature: str = ""
+    container: str = ""
     is_public: bool = False
     doc: str = ""
     body_text: str = ""
@@ -28,7 +29,9 @@ class Symbol:
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "Symbol":
-        return cls(**data)
+        allowed = {item.name for item in fields(cls)}
+        cleaned = {key: value for key, value in data.items() if key in allowed}
+        return cls(**cleaned)
 
 
 @dataclass(slots=True)
@@ -98,6 +101,7 @@ class TemplateContext:
     title: str
     entry_file: str
     target_directory: str
+    project_root: str
     languages: List[str]
     executive_summary: str
     functional_description: List[str]

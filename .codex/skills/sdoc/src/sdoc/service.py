@@ -34,6 +34,10 @@ def load_runtime_config(
 ) -> SdocConfig:
     probe = Path.cwd() / relative_path
     discovered = find_config(probe) if config_path is None else Path(config_path)
+    if discovered is None:
+        bundled = Path(__file__).resolve().parents[2] / "sdoc.toml"
+        if bundled.exists():
+            discovered = bundled
     cfg = load_config(str(discovered) if discovered else None)
     if discovered is not None and not Path(cfg.project_root).is_absolute():
         cfg = update_config(cfg, {"project_root": str((Path(discovered).parent / cfg.project_root).resolve())})
@@ -105,6 +109,7 @@ def generate_document(
         title=title,
         entry_file=entry_file.as_posix(),
         target_directory=entry_file.parent.as_posix(),
+        project_root=root.as_posix(),
         languages=languages,
         executive_summary=executive_summary,
         functional_description=functional_description,
